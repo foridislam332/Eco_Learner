@@ -10,13 +10,13 @@ import { SlLocationPin } from 'react-icons/sl';
 const Footer = () => {
     return (
         <footer>
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-10 lg:gap-20">
 
-                    <div className="flex flex-col gap-4 items-center">
+                    <div className="flex flex-col gap-5 items-center">
                         <Link to="/" className="text-green font-medium text-4xl">Eco Learner</Link>
 
-                        <p className="text-gray text-center">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Fugit quia hic deserunt. Ipsum, ut praesentium. Velit numquam impedit quod sit fugiat aliquam suscipit incidunt.</p>
+                        <p className="text-gray text-sm text-center mb-4">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Fugit quia hic deserunt. Ipsum, ut praesentium. Velit numquam impedit quod sit fugiat aliquam suscipit incidunt.</p>
 
                         {/* social icons */}
                         <div className="flex items-center gap-3">
@@ -80,7 +80,8 @@ const Footer = () => {
                 </div>
             </div>
 
-            <div className="text-center py-4 bg-dark mt-10 border-t shadow-2xl">
+            {/* copy write */}
+            <div className="text-center py-4 bg-dark border-t shadow-2xl">
                 <p className="text-white">© 2023 AzazTheme. All Rights Reserved</p>
             </div>
         </footer>

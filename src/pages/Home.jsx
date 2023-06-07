@@ -1,8 +1,9 @@
+import HeroBanner from "../sections/HomeSections/HeroBanner";
 
 const Home = () => {
     return (
         <div>
-            home coming
+            <HeroBanner />
         </div>
     );
 };

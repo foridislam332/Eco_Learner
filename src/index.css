@@ -7,3 +7,39 @@ body {
     font-family: 'Poppins', sans-serif;
     font-weight: 400;
 }
+
+/* primary button styles */
+.btn_primary {
+    color: #a6c437;
+    font-weight: 500;
+    position: relative;
+    background: #fff;
+    padding: 15px 40px;
+    z-index: 99;
+    border-radius: 30px;
+    transition: all .3s ease-in-out;
+}
+
+.btn_primary::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #fff;
+    z-index: -1;
+    transition: all .3s ease-in-out;
+    border-radius: 30px;
+}
+
+.btn_primary:hover {
+    color: #f05a21;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.btn_primary:hover:after {
+    transform: scale(1.5);
+    opacity: 0;
+}
