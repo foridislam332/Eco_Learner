@@ -57,7 +57,7 @@ const Footer = () => {
                                 <p className="text-gray">eco.learner@eco.com</p>
                             </div>
 
-                            <div className="flex items-center gap-3">
+                            <div className="flex items-start gap-3">
                                 <SlLocationPin className="text-green text-2xl" />
                                 <p className="text-gray">15 Barnes Wallis Way, #358, Francisco, CA 94107</p>
                             </div>
