@@ -33,7 +33,6 @@ const ClassesCard = ({ item }) => {
                     </div>
                 }
             </div>
-
         </div>
     );
 };
