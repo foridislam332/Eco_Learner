@@ -1,0 +1,82 @@
+[
+    {
+        "name": "Field Trips and Outdoor Activities",
+        "instructor": "John Smith",
+        "image": "https://i.ibb.co/QPX53LZ/1.jpg",
+        "des": "Nature exploration classes often involve field trips to natural areas, such as parks, forests, wetlands, or coastal regions. Participants may engage in activities like hiking, wildlife observation, plant identification, nature photography, or nature journaling.",
+        "availableSeats": 20,
+        "price": 50,
+        "start": "10:00 AM",
+        "enrolledStudents": 12
+    },
+    {
+        "name": "Ecological Concepts and Principles",
+        "instructor": "Jessica Thompson",
+        "image": "https://i.ibb.co/QPX53LZ/1.jpg",
+        "des": "These classes provide an introduction to ecological concepts, including biodiversity, food webs, ecosystems, and environmental sustainability. Participants learn about the interconnections between living organisms and their habitats.",
+        "availableSeats": 15,
+        "price": 40,
+        "start": "11:30 AM",
+        "enrolledStudents": 8
+    },
+    {
+        "name": "Environmental Stewardship",
+        "instructor": "Michael Davis",
+        "image": "https://i.ibb.co/QPX53LZ/1.jpg",
+        "des": "Nature exploration classes often emphasize the importance of environmental stewardship and conservation. Participants may learn about human impacts on ecosystems, the importance of preserving natural habitats, and practical ways to promote sustainable practices.",
+        "availableSeats": 12,
+        "price": 35,
+        "start": "2:00 PM",
+        "enrolledStudents": 10
+    },
+    {
+        "name": "Natural History and Phenomena",
+        "instructor": "Sarah Adams",
+        "image": "https://i.ibb.co/QPX53LZ/1.jpg",
+        "des": "Participants may explore topics related to natural history, such as geology, climate, weather patterns, and seasonal changes. They may learn about the flora and fauna of a specific region and study adaptations that allow plants and animals to thrive in their habitats.",
+        "availableSeats": 10,
+        "price": 45,
+        "start": "9:30 AM",
+        "enrolledStudents": 5
+    },
+    {
+        "name": "Outdoor Skills and Safety",
+        "instructor": "David Roberts",
+        "image": "https://i.ibb.co/QPX53LZ/1.jpg",
+        "des": "Nature exploration classes may include instruction on outdoor skills and safety measures. This can involve teaching participants about map reading, navigation, basic survival skills, and how to minimize their impact on the environment during outdoor activities.",
+        "availableSeats": 18,
+        "price": 55,
+        "start": "1:00 PM",
+        "enrolledStudents": 16
+    },
+    {
+        "name": "Environmental Education and Interpretation",
+        "instructor": "Emily Johnson",
+        "image": "https://i.ibb.co/QPX53LZ/1.jpg",
+        "des": "Some nature exploration classes focus on developing skills in environmental education and interpretation. Participants learn techniques for engaging and educating others about the natural world, including designing educational activities, creating interpretive displays, and leading guided nature walks.",
+        "availableSeats": 15,
+        "price": 30,
+        "start": "3:30 PM",
+        "enrolledStudents": 3
+    },
+    {
+        "name": "Bird Watching",
+        "instructor": "Andrew Wilson",
+        "image": "bird_watching.jpg",
+        "des": "These classes provide an introduction to ecological concepts, including biodiversity, food webs, ecosystems, and environmental sustainability. Participants learn about the interconnections between living organisms and their habitats.",
+        "availableSeats": 8,
+        "price": 25,
+        "start": "8:00 AM",
+        "enrolledStudents": 6
+    },
+    {
+        "name": "Nature Photography",
+        "instructor": "Olivia Carter",
+        "image": "nature_photography.jpg",
+        "des": "These classes provide an introduction to ecological concepts, including biodiversity, food webs, ecosystems, and environmental sustainability. Participants learn about the interconnections between living organisms and their habitats.",
+        "availableSeats": 12,
+        "price": 60,
+        "start": "4:00 PM",
+        "enrolledStudents": 9
+    }
+]

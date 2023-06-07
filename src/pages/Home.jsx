@@ -1,10 +1,12 @@
 import HeroBanner from "../sections/HomeSections/HeroBanner";
+import PopularClasses from "../sections/HomeSections/PopularClasses";
 
 const Home = () => {
     return (
-        <div>
+        <>
             <HeroBanner />
-        </div>
+            <PopularClasses />
+        </>
     );
 };
 

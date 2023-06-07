@@ -72,7 +72,7 @@ const Footer = () => {
 
                         <div className="border border-green rounded-3xl py-3 px-4 flex items-center my-4">
                             <input className="border-none outline-none w-full" type="text" placeholder="Email address" />
-                            <button><FaRegPaperPlane className="text-orange" /></button>
+                            <button><FaRegPaperPlane className="text-green text-xl" /></button>
                         </div>
 
                         <p className="text-gray">We don't send spam</p>
