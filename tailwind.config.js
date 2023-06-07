@@ -13,22 +13,7 @@ export default {
         'red': '#f05a21',
         'dark': '#1e293b',
         'gray': '#666666',
-      },
-      container: {
-        center: true,
-        padding: {
-          DEFAULT: '1rem',
-          sm: '2rem',
-          lg: '3rem',
-          xl: '4rem',
-        },
-        maxWidth: {
-          'sm': '640px',
-          'md': '768px',
-          'lg': '1024px',
-          'xl': '1170px'
-        },
-      },
+      }
     },
   },
   plugins: [],

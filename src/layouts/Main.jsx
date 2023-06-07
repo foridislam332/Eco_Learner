@@ -4,11 +4,13 @@ import Footer from "../components/Shared/Footer";
 
 const Main = () => {
     return (
-        <div className="container">
+        <>
             <Header />
-            <Outlet />
+            <main>
+                <Outlet />
+            </main>
             <Footer />
-        </div>
+        </>
     );
 };
 
