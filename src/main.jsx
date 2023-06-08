@@ -13,12 +13,15 @@ const queryClient = new QueryClient()
 // fonts
 import 'typeface-poppins';
 import 'typeface-rubik';
+import AuthProvider from './Providers/AuthProvider'
 
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <QueryClientProvider client={queryClient}>
-      <RouterProvider router={routes} />
+      <AuthProvider>
+        <RouterProvider router={routes} />
+      </AuthProvider>
     </QueryClientProvider>
   </React.StrictMode>,
 )

@@ -1,8 +1,10 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { useForm } from "react-hook-form";
 import { Player } from '@lottiefiles/react-lottie-player';
 import Breadcrumbs from '../components/Shared/Breadcrumbs';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../Providers/AuthProvider';
+import { toast } from 'react-toastify';
 
 // react icons
 import { MdAlternateEmail, MdLockOutline } from 'react-icons/md';
@@ -15,24 +17,59 @@ import { BsShieldCheck } from 'react-icons/bs';
 import googleImg from '../assets/images/google.png';
 
 const SignUp = () => {
+    const { signUpUser, profileUpdate } = useContext(AuthContext);
     const [type, setType] = useState('password');
     const { register, handleSubmit, formState: { errors } } = useForm();
     const onSubmit = data => {
         if (data.password.length < 6) {
-            return alert('password should be 6 characters')
+            return toast.warning('password should be 6 characters', {
+                position: "top-right",
+                autoClose: 4000,
+                theme: "light",
+            });
         }
         if (data.password !== data.confirm) {
-            return alert('password did not match')
+            return toast.warning("password didn't match", {
+                position: "top-right",
+                autoClose: 4000,
+                theme: "light",
+            });
         }
         if (!/[A-Z]/.test(data.password)) {
-            return alert('Password must contain at least one capital letter.');
+            return toast.warning('Password must contain at least one capital letter.', {
+                position: "top-right",
+                autoClose: 4000,
+                theme: "light",
+            });
         }
 
         if (!/[!@#$%^&*()_+{}\[\]|:;"'<>,.?/~`=\-]/.test(data.password)) {
-            return alert('Password must contain at least one special characters.');
+            return toast.warning('Password must contain at least one special characters.', {
+                position: "top-right",
+                autoClose: 4000,
+                theme: "light",
+            });
         }
 
-        return console.log(data)
+        signUpUser(data.email, data.password)
+            .then((result) => {
+                profileUpdate(result.user, data.name, data.photo)
+                    .then(() => {
+                    }).catch((error) => {
+                        toast.error(error.message, {
+                            position: "top-right",
+                            autoClose: 4000,
+                            theme: "light",
+                        });
+                    });
+            })
+            .catch(error => {
+                toast.error(error.message, {
+                    position: "top-right",
+                    autoClose: 4000,
+                    theme: "light",
+                });
+            })
     };
     return (
         <section>
