@@ -7,7 +7,7 @@ const PopularClasses = () => {
     const [classes] = useClasses();
 
     return (
-        <section className='py-16 md:py-20'>
+        <section className='py-16 md:py-20 bg-[#f7f7f7] bg-fixed'>
             {/* section title */}
             <SectionTitle>
                 Popular Classes

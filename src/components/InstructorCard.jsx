@@ -4,22 +4,10 @@ import { useLocation } from 'react-router-dom';
 import { FaFacebookF, FaTwitter, FaLinkedinIn, FaGithub } from 'react-icons/fa';
 import { MdAlternateEmail } from 'react-icons/md';
 
-const InstructorCard = ({ item, classes, index }) => {
+const InstructorCard = ({ item, instructorClasses, index }) => {
     const { name, instructor, instructorImage, instructorEmail } = item;
 
     const { pathname } = useLocation();
-
-    const instructors = [...new Set(classes.map(item => item.instructor))]
-
-    const instructorClasses = instructors.map(instructor => {
-        const allClasses = classes.filter(item => item.instructor === instructor);
-        const classNames = allClasses.map(item => item.name);
-        return {
-            instructor: instructor,
-            numberOfClasses: classNames.length,
-            classes: classNames
-        };
-    });
 
     return (
         <div className='bg-white border border-orange hover:border-green transition-all duration-300 ease-in-out hover:shadow-custom rounded-md cursor-pointer px-5 py-10 group'>
@@ -35,7 +23,7 @@ const InstructorCard = ({ item, classes, index }) => {
                 }
 
                 {
-                    pathname === '/instructors' ? <p className='italic text-dark truncate'>Number Of Classes: {instructorClasses[index].numberOfClasses}</p> : <p className='italic text-dark truncate'>{name}</p>
+                    pathname === '/instructors' ? <p className='italic text-dark truncate'>Number Of Classes: {instructorClasses[index]?.numberOfClasses}</p> : <p className='italic text-dark truncate'>{name}</p>
                 }
             </div>
 
