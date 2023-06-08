@@ -5,7 +5,7 @@ const InstructorCard = ({ item }) => {
     const { name, instructor, instructorImage } = item;
 
     return (
-        <div className='border border-orange hover:border-green transition-all duration-300 ease-in-out hover:shadow-custom rounded-md cursor-pointer px-5 py-10 group'>
+        <div className='bg-white border border-orange hover:border-green transition-all duration-300 ease-in-out hover:shadow-custom rounded-md cursor-pointer px-5 py-10 group'>
             <div className='h-52 w-52 mx-auto rounded-full border-[5px] border-orange border-double group-hover:border-green duration-300 ease-in-out'>
                 <img className='rounded-full w-full h-full' src={instructorImage} alt={instructor} />
             </div>
