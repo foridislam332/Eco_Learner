@@ -2,7 +2,7 @@ import React from 'react';
 import { Player } from '@lottiefiles/react-lottie-player';
 
 // images
-import featuresBg from '../assets/images/features1.jpg';
+import featuresBg from '../../assets/images/features1.jpg';
 const Features = () => {
     return (
         <section style={{ backgroundImage: `url(${featuresBg})` }} className='py-20 bg-fixed bg-cover bg-center bg-no-repeat'>

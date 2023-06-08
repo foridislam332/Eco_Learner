@@ -22,7 +22,7 @@ const WhyChoose = () => {
                         </Player>
                         <div className='p-5'>
                             <h2 className='text-xl font-rubik font-medium text-green'>Question, Quiz & Course</h2>
-                            <p className='text-gray mt-3'>Highly Experienced is a phrase used to describe someone who possesses a wealth of knowledge</p>
+                            <p className='text-gray mt-3'>A form of assessment or evaluation that tests a person's knowledge or understanding</p>
                         </div>
                     </div>
                     <div className='text-center shadow-custom'>
@@ -48,7 +48,7 @@ const WhyChoose = () => {
                         </Player>
                         <div className='p-5'>
                             <h2 className='text-xl font-rubik font-medium text-green'>Dedicated Support</h2>
-                            <p className='text-gray mt-3'>Highly Experienced is a phrase used to describe someone who possesses a wealth of knowledge</p>
+                            <p className='text-gray mt-3'>Dedicated support refers to a specialized team or individual that provides continuous assistance</p>
                         </div>
                     </div>
                 </div>
