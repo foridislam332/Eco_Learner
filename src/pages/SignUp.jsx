@@ -17,7 +17,7 @@ import { BsShieldCheck } from 'react-icons/bs';
 import googleImg from '../assets/images/google.png';
 
 const SignUp = () => {
-    const { signUpUser, profileUpdate } = useContext(AuthContext);
+    const { signUpUser, profileUpdate, googleSignIn } = useContext(AuthContext);
     const [type, setType] = useState('password');
     const { register, handleSubmit, formState: { errors } } = useForm();
     const onSubmit = data => {
@@ -71,6 +71,19 @@ const SignUp = () => {
                 });
             })
     };
+
+    const signInWithGoogle = () => {
+        googleSignIn()
+            .then((result) => {
+            })
+            .catch(error => {
+                toast.error(error.message, {
+                    position: "top-right",
+                    autoClose: 4000,
+                    theme: "light",
+                });
+            })
+    }
     return (
         <section>
             <Breadcrumbs title="Sign Up" />
@@ -138,7 +151,7 @@ const SignUp = () => {
                             <span className='border-t border-red w-full block'></span>
                         </div>
 
-                        <button className='btn_primary flex items-center justify-center gap-3 border w-full'>
+                        <button onClick={signInWithGoogle} className='btn_primary flex items-center justify-center gap-3 border w-full'>
                             <img className='w-6' src={googleImg} alt="google" />
                             <p className='text-lg'>Login with Google</p>
                         </button>

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { useForm } from "react-hook-form";
 import { Player } from '@lottiefiles/react-lottie-player';
 import Breadcrumbs from '../components/Shared/Breadcrumbs';
@@ -10,13 +10,38 @@ import { AiOutlineEyeInvisible, AiOutlineEye } from 'react-icons/ai';
 
 // image
 import googleImg from '../assets/images/google.png';
+import { AuthContext } from '../Providers/AuthProvider';
+import { toast } from 'react-toastify';
 
 const Login = () => {
+    const { signIn, googleSignIn } = useContext(AuthContext);
     const [type, setType] = useState('password');
     const { register, handleSubmit, formState: { errors } } = useForm();
     const onSubmit = data => {
-        console.log(data)
+        signIn(data.email, data.password)
+            .then(() => {
+            })
+            .catch(error => {
+                toast.error(error.message, {
+                    position: "top-center",
+                    autoClose: 3000,
+                    theme: "light",
+                });
+            })
     };
+
+    const signInWithGoogle = () => {
+        googleSignIn()
+            .then((result) => {
+            })
+            .catch(error => {
+                toast.error(error.message, {
+                    position: "top-right",
+                    autoClose: 4000,
+                    theme: "light",
+                });
+            })
+    }
     return (
         <section>
             <Breadcrumbs title="Login" />
@@ -65,7 +90,7 @@ const Login = () => {
                             <span className='border-t border-red w-full block'></span>
                         </div>
 
-                        <button className='btn_primary flex items-center justify-center gap-3 border w-full'>
+                        <button onClick={signInWithGoogle} className='btn_primary flex items-center justify-center gap-3 border w-full'>
                             <img className='w-6' src={googleImg} alt="google" />
                             <p className='text-lg'>Login with Google</p>
                         </button>

@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import ActiveLink from './ActiveLink';
+import { AuthContext } from '../../../Providers/AuthProvider';
 
 const NavItem = () => {
+    const { user } = useContext(AuthContext);
     return (
         <>
             <li>
@@ -17,7 +19,9 @@ const NavItem = () => {
                 <ActiveLink to='/dashboard '>Dashboard </ActiveLink>
             </li>
             <li>
-                <ActiveLink to='/login'>Login</ActiveLink>
+                {
+                    user?.email ? <ActiveLink to='/login'>Logout</ActiveLink> : <ActiveLink to='/login'>Login</ActiveLink>
+                }
             </li>
         </>
     );
