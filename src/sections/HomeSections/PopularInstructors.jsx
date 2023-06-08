@@ -5,11 +5,12 @@ import InstructorCard from '../../components/InstructorCard';
 
 // images
 import instructorsBg from '../../assets/images/instructors-bg.jpg';
+
 const PopularInstructors = () => {
     const [classes] = useClasses();
     return (
         <section>
-            <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 {/* section title */}
                 <SectionTitle>
                     Popular Instructors
@@ -22,7 +23,7 @@ const PopularInstructors = () => {
                     <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
                         <div className='grid grid-cols-1 md:grid-cols-3 gap-10'>
                             {
-                                classes.slice(0, 6).map(item => <InstructorCard key={item.name} item={item} />)
+                                classes.slice(0, 6).map((item, index) => <InstructorCard key={index} item={item} classes={classes} index={index} />)
                             }
                         </div>
                     </div>

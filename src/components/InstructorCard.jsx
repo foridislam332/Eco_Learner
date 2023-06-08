@@ -1,8 +1,25 @@
+import { useLocation } from 'react-router-dom';
+
 // react icons
 import { FaFacebookF, FaTwitter, FaLinkedinIn, FaGithub } from 'react-icons/fa';
+import { MdAlternateEmail } from 'react-icons/md';
 
-const InstructorCard = ({ item }) => {
-    const { name, instructor, instructorImage } = item;
+const InstructorCard = ({ item, classes, index }) => {
+    const { name, instructor, instructorImage, instructorEmail } = item;
+
+    const { pathname } = useLocation();
+
+    const instructors = [...new Set(classes.map(item => item.instructor))]
+
+    const instructorClasses = instructors.map(instructor => {
+        const allClasses = classes.filter(item => item.instructor === instructor);
+        const classNames = allClasses.map(item => item.name);
+        return {
+            instructor: instructor,
+            numberOfClasses: classNames.length,
+            classes: classNames
+        };
+    });
 
     return (
         <div className='bg-white border border-orange hover:border-green transition-all duration-300 ease-in-out hover:shadow-custom rounded-md cursor-pointer px-5 py-10 group'>
@@ -13,11 +30,17 @@ const InstructorCard = ({ item }) => {
             <div className='mt-6 text-center'>
                 <h1 className='text-2xl text-green drop-shadow-lg font-medium'>{instructor}</h1>
 
-                <p className='italic text-dark'>{name}</p>
+                {
+                    pathname === '/instructors' && <p className='italic text-dark mb-1 flex items-center justify-center gap-1'><MdAlternateEmail className='text-green' /><span>{instructorEmail}</span></p>
+                }
+
+                {
+                    pathname === '/instructors' ? <p className='italic text-dark truncate'>Number Of Classes: {instructorClasses[index].numberOfClasses}</p> : <p className='italic text-dark truncate'>{name}</p>
+                }
             </div>
 
             {/* social icons */}
-            <div className="flex items-center justify-center gap-1 mt-8">
+            <div className={`flex items-center justify-center gap-1 mt-8 ${pathname === '/instructors' ? 'hidden' : ''}`}>
                 <div className="w-10 h-10 flex items-center justify-center rounded-full border border-[#3b5998] cursor-pointer">
                     <FaFacebookF color="#3b5998" />
                 </div>
@@ -33,6 +56,10 @@ const InstructorCard = ({ item }) => {
                 <div className="w-10 h-10 flex items-center justify-center rounded-full border border-[#0072b1] cursor-pointer">
                     <FaLinkedinIn color="#0072b1" />
                 </div>
+            </div>
+
+            <div className={`text-center mt-6 ${pathname === '/instructors' ? '' : 'hidden'}`}>
+                <button className='btn_primary border border-green'>See Classes</button>
             </div>
         </div>
     );
