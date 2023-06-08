@@ -19,11 +19,19 @@ const SignUp = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
     const onSubmit = data => {
         if (data.password.length < 6) {
-            return alert('pass should be 6 cherecter')
+            return alert('password should be 6 characters')
         }
         if (data.password !== data.confirm) {
-            return alert('pass did not match')
+            return alert('password did not match')
         }
+        if (!/[A-Z]/.test(data.password)) {
+            return alert('Password must contain at least one capital letter.');
+        }
+
+        if (!/[!@#$%^&*()_+{}\[\]|:;"'<>,.?/~`=\-]/.test(data.password)) {
+            return alert('Password must contain at least one special characters.');
+        }
+
         return console.log(data)
     };
     return (
