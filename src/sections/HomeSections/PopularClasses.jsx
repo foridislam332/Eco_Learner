@@ -17,7 +17,7 @@ const PopularClasses = () => {
             <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 mt-16">
                 <div className='grid grid-cols-1 md:grid-cols-3 gap-10'>
                     {
-                        classes.slice(0, 6).map(item => <ClassesCard key={item.name} item={item} />)
+                        classes.slice(0, 6).sort((a, b) => b.enrolledStudents - a.enrolledStudents).map(item => <ClassesCard key={item.name} item={item} />)
                     }
                 </div>
             </div>
