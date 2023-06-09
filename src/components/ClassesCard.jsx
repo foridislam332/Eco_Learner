@@ -7,9 +7,11 @@ import { BiBook } from 'react-icons/bi'
 import { AuthContext } from '../Providers/AuthProvider';
 import axios from 'axios';
 import { toast } from 'react-toastify';
+import useSelectedClasses from '../hooks/useSelectedClasses';
 
 const ClassesCard = ({ item }) => {
     const { user } = useContext(AuthContext);
+    const [selectedClasses] = useSelectedClasses();
     const { name, instructor, image, des, price, enrolledStudents } = item;
 
     const { pathname } = useLocation();
@@ -20,6 +22,16 @@ const ClassesCard = ({ item }) => {
 
     const handleSelectedClass = (item) => {
         const selectedClass = { email: user.email, classId: item._id, image: item.image, price: item.price, students: item.enrolledStudents };
+
+        const isExists = selectedClasses.find(cls => cls.classId == item._id)
+
+        if (isExists) {
+            return toast.warning("Class already Selected", {
+                position: "top-right",
+                autoClose: 3000,
+                theme: "light",
+            });
+        }
 
         api.post('/selectedClasses', selectedClass)
             .then(data => {
