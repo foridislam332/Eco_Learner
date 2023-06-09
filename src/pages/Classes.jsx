@@ -3,6 +3,7 @@ import useClasses from '../hooks/useClasses';
 import ClassesCard from '../components/ClassesCard';
 import SectionTitle from '../components/Shared/SectionTitle';
 import Breadcrumbs from '../components/Shared/Breadcrumbs';
+import Loading from '../components/Loading';
 
 const Classes = () => {
     const [classes] = useClasses();
@@ -15,11 +16,13 @@ const Classes = () => {
                     <SectionTitle>Our Classes</SectionTitle>
 
                     {/* classes card */}
-                    <div className='grid grid-cols-1 md:grid-cols-3 gap-10 mt-16'>
-                        {
-                            classes.map((item) => <ClassesCard key={item.name} item={item} />)
-                        }
-                    </div>
+                    {
+                        classes.length === 0 ? <div className='-mt-20'><Loading /></div> : <div className='grid grid-cols-1 md:grid-cols-3 gap-10 mt-16'>
+                            {
+                                classes.map((item) => <ClassesCard key={item.name} item={item} />)
+                            }
+                        </div>
+                    }
                 </div>
             </div>
         </section>
