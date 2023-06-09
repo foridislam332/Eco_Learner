@@ -9,7 +9,7 @@ const DashboardNav = () => {
     const { user } = useContext(AuthContext);
     const role = 'Student';
     return (
-        <div className='bg-white flex items-center justify-between px-5 rounded-lg shadow-xl shadow-indigo-500/20'>
+        <div className='sticky top-0 z-50 bg-white flex items-center justify-between px-5 rounded-lg shadow-xl shadow-indigo-500/20'>
             <div className='border border-green w-96 px-4 py-3 rounded-3xl hidden md:flex items-center'>
                 <input className='w-full border-none outline-none' type="text" placeholder='Search' />
                 <button>

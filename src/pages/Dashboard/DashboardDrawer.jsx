@@ -8,7 +8,7 @@ import { AiOutlineHome } from 'react-icons/ai';
 
 const DashboardDrawer = () => {
     return (
-        <div className='w-80 h-screen bg-white rounded-lg flex flex-col justify-between shadow-xl shadow-indigo-500/20'>
+        <div className='w-80 sticky top-0 h-screen bg-white rounded-lg flex flex-col justify-between shadow-xl shadow-indigo-500/20'>
             <nav>
                 <div className='text-center py-4'>
                     <Link to='/' className='text-3xl font-semibold text-green'>Eco Learner</Link>

@@ -1,31 +1,33 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
-const SelectedClassTableRow = ({ item }) => {
-    const { _id, img, name, price, seller, subCategory } = item;
+// react icons
+import { FaRegTrashAlt, FaPencilAlt } from 'react-icons/fa';
+
+const SelectedClassTableRow = ({ item, index }) => {
+    const { _id, image, name, price, students } = item;
     return (
-        <tr className="border-b border-blue even:bg-navy even:text-white">
+        <tr className="border-b border-green even:bg-dark even:text-white">
             <td className="py-3 px-4 text-left text-blue">
-                <p className='w-16 h-16 rounded-full border border-blue shadow-lg'>
-                    <img className='h-full rounded-full' src={img} alt={name} />
+                {index + 1}
+            </td>
+            <td className="py-3 px-4 text-left text-blue">
+                <p className='w-14 h-14 rounded-full shadow-xl'>
+                    <img className='h-full rounded-full' src={image} alt={name} />
                 </p>
             </td>
-            <td className="py-3 px-4 text-left text-blue min-w-[200px]">
-                <Link to={`/toyDetails/${_id}`}>
-                    {name?.slice(0, 65)} ...
-                </Link>
+            <td className="py-3 px-4 text-left text-green">
+                {name}
             </td>
-            <td className="min-w-[150px] py-3 px-2 text-left">{seller}</td>
-            <td className="min-w-[150px] py-3 px-2 text-left">{subCategory}</td>
+            <td className="py-3 px-2 text-center">{25 - students}</td>
             <td className="py-3 px-2 text-center">${price}</td>
             <td className="min-w-[120px] py-3 px-4 text-center">
                 <div className='flex items-center justify-center gap-2'>
-                    <Link to={`/edit-toys/${_id}`}>
-                        <button className="h-10 w-10 flex items-center justify-center bg-blue rounded-full text-white shadow-lg hover:shadow-blue duration-300">
-                            <FaPencilAlt />
-                        </button>
-                    </Link>
+                    <button className="h-10 w-10 flex items-center justify-center bg-green rounded-full text-white shadow-lg hover:shadow-green duration-300">
+                        <FaPencilAlt />
+                    </button>
 
-                    <button onClick={() => handleDelete(_id)} className="h-10 w-10 flex items-center justify-center bg-blue rounded-full text-white shadow-lg hover:shadow-pink hover:bg-pink duration-300">
+                    <button onClick={() => handleDelete(_id)} className="h-10 w-10 flex items-center justify-center bg-green rounded-full text-white shadow-lg hover:shadow-red hover:bg-red duration-300">
                         <FaRegTrashAlt />
                     </button>
                 </div>
