@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 // react icons
-import { FaRegTrashAlt, FaPencilAlt } from 'react-icons/fa';
+import { FaRegTrashAlt, FaRegCreditCard } from 'react-icons/fa';
 
 const SelectedClassTableRow = ({ item, index }) => {
     const { _id, image, name, price, students } = item;
@@ -23,11 +23,11 @@ const SelectedClassTableRow = ({ item, index }) => {
             <td className="py-3 px-2 text-center">${price}</td>
             <td className="min-w-[120px] py-3 px-4 text-center">
                 <div className='flex items-center justify-center gap-2'>
-                    <button className="h-10 w-10 flex items-center justify-center bg-green rounded-full text-white shadow-lg hover:shadow-green duration-300">
-                        <FaPencilAlt />
+                    <button title='Payment' className="h-10 w-10 flex items-center justify-center bg-green rounded-full text-white shadow-lg hover:shadow-green duration-300">
+                        <FaRegCreditCard />
                     </button>
 
-                    <button onClick={() => handleDelete(_id)} className="h-10 w-10 flex items-center justify-center bg-green rounded-full text-white shadow-lg hover:shadow-red hover:bg-red duration-300">
+                    <button title='Delete' onClick={() => handleDelete(_id)} className="h-10 w-10 flex items-center justify-center bg-green rounded-full text-white shadow-lg hover:shadow-red hover:bg-red duration-300">
                         <FaRegTrashAlt />
                     </button>
                 </div>

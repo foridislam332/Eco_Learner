@@ -1,15 +1,17 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { NavLink } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
+import { AuthContext } from '../../Providers/AuthProvider';
 
 // react icons
 import { RiBookMarkLine } from 'react-icons/ri';
 import { MdOutlineBookmarkAdded } from 'react-icons/md';
 import { AiOutlineHome } from 'react-icons/ai';
-import { useLocation } from 'react-router-dom';
+import { FiLogOut } from 'react-icons/fi';
 
 const DashboardDrawer = () => {
+    const { logOut } = useContext(AuthContext);
     const { pathname } = useLocation();
-    console.log(pathname)
     return (
         <div className='w-80 sticky top-0 h-screen bg-white rounded-lg flex flex-col justify-between shadow-xl shadow-indigo-500/20'>
             <nav>
@@ -31,7 +33,12 @@ const DashboardDrawer = () => {
                 </div>
             </nav>
             <div className='mb-6 w-full px-6'>
-                <button className='bg-red text-white w-full py-2 rounded-lg'>Logout</button>
+                <button
+                    className="w-full bg-red text-white font-medium py-2 mt-3 flex items-center justify-center gap-3 rounded-lg"
+                    onClick={() => logOut()}
+                >
+                    <span>LogOut</span> <FiLogOut className='text-white' />
+                </button>
             </div>
         </div>
     );
