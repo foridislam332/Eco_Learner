@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import useClasses from '../hooks/useClasses';
 import ClassesCard from '../components/ClassesCard';
 import SectionTitle from '../components/Shared/SectionTitle';
@@ -6,6 +6,7 @@ import Breadcrumbs from '../components/Shared/Breadcrumbs';
 
 const Classes = () => {
     const [classes] = useClasses();
+
     return (
         <section>
             <Breadcrumbs title='Classes' />

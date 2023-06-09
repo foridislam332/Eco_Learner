@@ -5,12 +5,33 @@ import { Link, useLocation } from 'react-router-dom';
 import { HiOutlineUsers } from 'react-icons/hi'
 import { BiBook } from 'react-icons/bi'
 import { AuthContext } from '../Providers/AuthProvider';
+import axios from 'axios';
+import { toast } from 'react-toastify';
 
 const ClassesCard = ({ item }) => {
     const { user } = useContext(AuthContext);
     const { name, instructor, image, des, price, enrolledStudents } = item;
 
     const { pathname } = useLocation();
+
+    const api = axios.create({
+        baseURL: 'http://localhost:5000',
+    });
+
+    const handleSelectedClass = (item) => {
+        const selectedClass = { email: user.email, classId: item._id, image: item.image, price: item.price, students: item.enrolledStudents };
+
+        api.post('/selectedClasses', selectedClass)
+            .then(data => {
+                if (data.data.insertedId) {
+                    toast.success("Class Selected", {
+                        position: "top-right",
+                        autoClose: 3000,
+                        theme: "light",
+                    });
+                }
+            })
+    }
     return (
         <div className='bg-white hover:shadow-custom rounded-md flex flex-col justify-between hover:-translate-y-4 duration-300 ease-in-out'>
             <img className='rounded-md' src={image} alt={name} />
@@ -41,7 +62,7 @@ const ClassesCard = ({ item }) => {
                 {
                     pathname === '/' ? null : <div className='flex-1 flex items-end justify-center mt-5'>
                         {
-                            user?.email ? <button className='btn_primary border border-green'>Select Class</button> :
+                            user?.email ? <button onClick={() => handleSelectedClass(item)} className='btn_primary border border-green'>Select Class</button> :
                                 <Link to='/login' className='btn_primary border border-green'>Select Class</Link>
                         }
                     </div>

@@ -1,4 +1,3 @@
-import React from 'react';
 import SectionTitle from '../components/Shared/SectionTitle';
 import Breadcrumbs from '../components/Shared/Breadcrumbs';
 import ClassesCard from '../components/ClassesCard';
@@ -7,6 +6,7 @@ import Loading from '../components/Loading';
 
 const InstructorClasses = () => {
     const instructorClasses = useLoaderData();
+
     return (
         <section>
             <Breadcrumbs title='Instructor Classes' />
