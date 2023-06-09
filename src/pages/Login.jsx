@@ -2,7 +2,7 @@ import React, { useContext, useState } from 'react';
 import { useForm } from "react-hook-form";
 import { Player } from '@lottiefiles/react-lottie-player';
 import Breadcrumbs from '../components/Shared/Breadcrumbs';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 
 // react icons
 import { MdAlternateEmail, MdLockOutline } from 'react-icons/md';
@@ -14,12 +14,18 @@ import { AuthContext } from '../Providers/AuthProvider';
 import { toast } from 'react-toastify';
 
 const Login = () => {
+    // navigate
+    const navigate = useNavigate();
+    const location = useLocation();
+    const from = location.state?.from?.pathname || '/';
+
     const { signIn, googleSignIn } = useContext(AuthContext);
     const [type, setType] = useState('password');
     const { register, handleSubmit, formState: { errors } } = useForm();
     const onSubmit = data => {
         signIn(data.email, data.password)
             .then(() => {
+                navigate(from, { replace: true })
             })
             .catch(error => {
                 toast.error(error.message, {
@@ -32,7 +38,8 @@ const Login = () => {
 
     const signInWithGoogle = () => {
         googleSignIn()
-            .then((result) => {
+            .then(() => {
+                navigate(from, { replace: true })
             })
             .catch(error => {
                 toast.error(error.message, {
