@@ -17,7 +17,7 @@ const NavItem = () => {
                 <ActiveLink to='/classes'>Classes</ActiveLink>
             </li>
             <li>
-                <ActiveLink to='/dashboard '>Dashboard </ActiveLink>
+                <ActiveLink to='/dashboard/studentHome'>Dashboard </ActiveLink>
             </li>
             <li>
                 {

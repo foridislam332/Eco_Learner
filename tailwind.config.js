@@ -17,9 +17,6 @@ export default {
     },
     fontFamily: {
       'rubik': ['Rubik', 'sans-serif']
-    },
-    boxShadow: {
-      'custom': '0px 5px 25px 0px rgba(166, 196, 55, 0.35)',
     }
   },
   plugins: [],
