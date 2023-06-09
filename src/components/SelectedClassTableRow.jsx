@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 // react icons
 import { FaRegTrashAlt, FaRegCreditCard } from 'react-icons/fa';
 
-const SelectedClassTableRow = ({ item, index }) => {
+const SelectedClassTableRow = ({ item, index, handleDelete }) => {
     const { _id, image, name, price, students } = item;
     return (
         <tr className="border-b border-green even:bg-dark even:text-white">

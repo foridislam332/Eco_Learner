@@ -3,6 +3,8 @@ import useSelectedClasses from '../../hooks/useSelectedClasses';
 import SelectedClassTableRow from '../../components/SelectedClassTableRow';
 import { AuthContext } from '../../Providers/AuthProvider';
 import Loading from '../../components/Loading';
+import Swal from 'sweetalert2';
+import axios from 'axios';
 
 const SelectedClasses = () => {
     const [selectedClasses, loading, refetch] = useSelectedClasses();
@@ -10,6 +12,37 @@ const SelectedClasses = () => {
 
     if (user) {
         refetch();
+    }
+
+    const api = axios.create({
+        baseURL: 'http://localhost:5000',
+    });
+
+    const handleDelete = (id) => {
+        console.log(id)
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                api.delete(`/selectedClasses/${id}`)
+                    .then(data => {
+                        if (data.data.deletedCount > 0) {
+                            refetch();
+                            Swal.fire(
+                                'Deleted!',
+                                'Selected Class has been deleted.',
+                                'success'
+                            )
+                        }
+                    })
+            }
+        })
     }
 
     return (
@@ -39,6 +72,7 @@ const SelectedClasses = () => {
                                     key={item._id}
                                     item={item}
                                     index={index}
+                                    handleDelete={handleDelete}
                                 />)
                             }
                         </tbody>
