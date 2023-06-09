@@ -6,7 +6,6 @@ import Breadcrumbs from '../components/Shared/Breadcrumbs';
 
 const Classes = () => {
     const [classes] = useClasses();
-
     return (
         <section>
             <Breadcrumbs title='Classes' />

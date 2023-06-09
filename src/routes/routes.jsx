@@ -5,6 +5,7 @@ import Login from "../pages/Login";
 import SignUp from "../pages/SignUp";
 import Instructors from "../pages/Instructors";
 import Classes from "../pages/Classes";
+import InstructorClasses from "../pages/InstructorClasses";
 
 const routes = createBrowserRouter([
     {
@@ -18,6 +19,11 @@ const routes = createBrowserRouter([
             {
                 path: 'instructors',
                 element: <Instructors />
+            },
+            {
+                path: 'instructorClasses/:instructor',
+                element: <InstructorClasses />,
+                loader: ({ params }) => fetch(`http://localhost:5000/instructors/${params.instructor}`)
             },
             {
                 path: 'classes',

@@ -27,7 +27,7 @@ const Instructors = () => {
                 {/* classes card */}
                 <div className='grid grid-cols-1 md:grid-cols-3 gap-10 mt-16'>
                     {
-                        uniqueInstructors.map((item, index) => <InstructorCard key={index} item={item} instructorClasses={instructorClasses} index={index} />)
+                        uniqueInstructors.map((item, index) => <InstructorCard key={item._id} item={item} instructorClasses={instructorClasses} index={index} />)
                     }
                 </div>
             </div>

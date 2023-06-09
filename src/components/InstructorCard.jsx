@@ -1,4 +1,4 @@
-import { useLocation } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 // react icons
 import { FaFacebookF, FaTwitter, FaLinkedinIn, FaGithub } from 'react-icons/fa';
@@ -47,7 +47,7 @@ const InstructorCard = ({ item, instructorClasses, index }) => {
             </div>
 
             <div className={`text-center mt-6 ${pathname === '/instructors' ? '' : 'hidden'}`}>
-                <button className='btn_primary border border-green'>See Classes</button>
+                <Link to={`/instructorClasses/${instructor}`} className='btn_primary border border-green'>See Classes</Link>
             </div>
         </div>
     );
