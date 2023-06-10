@@ -1,3 +1,5 @@
+import FeedbackModal from "./Shared/FeedbackModal";
+
 const ManageClassesCard = ({ item, handleStatus }) => {
     const { _id, name, image, price, instructor, email, seats, status } = item;
 
@@ -33,9 +35,7 @@ const ManageClassesCard = ({ item, handleStatus }) => {
                         Deny
                     </button>
 
-                    <button className="btn_primary overflow-hidden border border-green hover:border-transparent">
-                        Send Feedback
-                    </button>
+                    <FeedbackModal id={_id} />
                 </div>
             </div>
         </div>
