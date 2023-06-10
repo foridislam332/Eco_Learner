@@ -18,7 +18,7 @@ const ClassesCard = ({ item }) => {
     const isExists = selectedClasses.find(cls => cls.classId == item._id)
 
     const api = axios.create({
-        baseURL: 'http://localhost:5000',
+        baseURL: 'https://eco-learner-server.vercel.app',
     });
     const handleSelectedClass = (item) => {
         const selectedClass = { email: user.email, classId: item._id, name: item.name, image: item.image, price: item.price, students: item.enrolledStudents };

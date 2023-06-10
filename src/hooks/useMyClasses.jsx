@@ -7,7 +7,7 @@ const useMyClasses = () => {
         queryKey: ['myClasses'],
         queryFn: async () => {
             if (user.email) {
-                const res = await fetch(`http://localhost:5000/myClasses?email=${user?.email}`);
+                const res = await fetch(`https://eco-learner-server.vercel.app/myClasses?email=${user?.email}`);
                 return res.json();
             }
         }

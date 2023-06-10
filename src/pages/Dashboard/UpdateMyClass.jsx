@@ -12,7 +12,7 @@ const UpdateMyClass = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
     const onSubmit = data => {
         const api = axios.create({
-            baseURL: 'http://localhost:5000',
+            baseURL: 'https://eco-learner-server.vercel.app',
         });
         api.patch(`/classes/${classData._id}`, data)
             .then(data => {

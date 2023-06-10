@@ -15,7 +15,7 @@ const ManageClasses = () => {
 
     const handleStatus = (id, status) => {
         const api = axios.create({
-            baseURL: 'http://localhost:5000',
+            baseURL: 'https://eco-learner-server.vercel.app',
         });
         api.patch(`/manageClasses/${id}?status=${status}`)
             .then(data => {

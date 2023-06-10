@@ -6,7 +6,7 @@ const useSelectedClasses = () => {
     const { data: selectedClasses = [], isLoading: loading, refetch } = useQuery({
         queryKey: ['selectedClasses'],
         queryFn: async () => {
-            const res = await fetch(`http://localhost:5000/selectedClasses?email=${user?.email}`);
+            const res = await fetch(`https://eco-learner-server.vercel.app/selectedClasses?email=${user?.email}`);
             return res.json();
         }
     })

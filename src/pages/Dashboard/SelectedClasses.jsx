@@ -14,7 +14,7 @@ const SelectedClasses = () => {
     }
 
     const api = axios.create({
-        baseURL: 'http://localhost:5000',
+        baseURL: 'https://eco-learner-server.vercel.app',
     });
 
     const handleDelete = (id) => {

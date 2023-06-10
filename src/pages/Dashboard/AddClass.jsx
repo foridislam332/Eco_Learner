@@ -12,7 +12,7 @@ const AddClass = () => {
     const onSubmit = data => {
         const newClass = { ...data, status: 'pending', students: 0, feedback: '' }
         const api = axios.create({
-            baseURL: 'http://localhost:5000',
+            baseURL: 'https://eco-learner-server.vercel.app',
         });
         api.post('/classes', newClass)
             .then(data => {
