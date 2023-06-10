@@ -26,7 +26,7 @@ const SocialLogin = () => {
         googleSignIn()
             .then((result) => {
                 const loggedUser = result.user;
-                const user = { name: loggedUser.displayName, email: loggedUser.email, role: 'student' };
+                const user = { name: loggedUser.displayName, email: loggedUser.email, role: 'student', photo: loggedUser.photoURL };
 
                 const isExists = users?.find(item => item.email === loggedUser.email);
 

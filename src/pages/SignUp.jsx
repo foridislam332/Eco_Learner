@@ -67,7 +67,7 @@ const SignUp = () => {
             .then((result) => {
                 profileUpdate(result.user, data.name, data.photo)
                     .then(() => {
-                        const user = { name: data.name, email: data.email, role: 'student' };
+                        const user = { name: data.name, email: data.email, role: 'student', photo: data.photo };
 
                         api.post('/users', user)
                             .then(data => {
