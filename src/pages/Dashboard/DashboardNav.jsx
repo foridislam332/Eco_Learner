@@ -1,12 +1,11 @@
-import React, { useContext } from 'react';
-import { AuthContext } from '../../Providers/AuthProvider';
+import useAuth from '../../hooks/useAuth';
 
 // react icons
 import { TfiAngleDown } from 'react-icons/tfi';
 import { BsSearch } from 'react-icons/bs';
 
 const DashboardNav = () => {
-    const { user } = useContext(AuthContext);
+    const { user } = useAuth();
     const role = 'Student';
     return (
         <div className='sticky top-0 z-50 bg-white flex items-center justify-between px-5 rounded-lg shadow-xl shadow-indigo-500/20'>

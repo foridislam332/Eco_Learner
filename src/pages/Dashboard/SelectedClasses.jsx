@@ -1,14 +1,13 @@
-import React, { useContext } from 'react';
 import useSelectedClasses from '../../hooks/useSelectedClasses';
 import SelectedClassTableRow from '../../components/SelectedClassTableRow';
-import { AuthContext } from '../../Providers/AuthProvider';
+import useAuth from '../../hooks/useAuth';
 import Loading from '../../components/Loading';
 import Swal from 'sweetalert2';
 import axios from 'axios';
 
 const SelectedClasses = () => {
     const [selectedClasses, loading, refetch] = useSelectedClasses();
-    const { user } = useContext(AuthContext);
+    const { user } = useAuth();
 
     if (user) {
         refetch();

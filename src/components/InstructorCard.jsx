@@ -5,7 +5,7 @@ import { FaFacebookF, FaTwitter, FaLinkedinIn, FaGithub } from 'react-icons/fa';
 import { MdAlternateEmail } from 'react-icons/md';
 
 const InstructorCard = ({ item, instructorClasses, index }) => {
-    const { name, instructor, instructorImage, instructorEmail } = item;
+    const { name, instructor, instructorImage, email } = item;
 
     const { pathname } = useLocation();
 
@@ -19,7 +19,7 @@ const InstructorCard = ({ item, instructorClasses, index }) => {
                 <h1 className='text-2xl text-green drop-shadow-lg font-medium'>{instructor}</h1>
 
                 {
-                    pathname === '/instructors' && <p className='italic text-dark mb-1 flex items-center justify-center gap-1'><MdAlternateEmail className='text-green' /><span>{instructorEmail}</span></p>
+                    pathname === '/instructors' && <p className='italic text-dark mb-1 flex items-center justify-center gap-1'><MdAlternateEmail className='text-green' /><span>{email}</span></p>
                 }
 
                 {

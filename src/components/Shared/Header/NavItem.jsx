@@ -1,10 +1,9 @@
-import React, { useContext } from 'react';
 import ActiveLink from './ActiveLink';
-import { AuthContext } from '../../../Providers/AuthProvider';
 import Profile from './Profile';
+import useAuth from '../../../hooks/useAuth';
 
 const NavItem = () => {
-    const { user } = useContext(AuthContext);
+    const { user } = useAuth();
     return (
         <>
             <li>

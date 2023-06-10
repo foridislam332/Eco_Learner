@@ -1,8 +1,10 @@
-import React, { useContext, useState } from 'react';
+import { useState } from 'react';
 import { useForm } from "react-hook-form";
 import { Player } from '@lottiefiles/react-lottie-player';
 import Breadcrumbs from '../components/Shared/Breadcrumbs';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
+import useAuth from '../hooks/useAuth';
 
 // react icons
 import { MdAlternateEmail, MdLockOutline } from 'react-icons/md';
@@ -10,8 +12,6 @@ import { AiOutlineEyeInvisible, AiOutlineEye } from 'react-icons/ai';
 
 // image
 import googleImg from '../assets/images/google.png';
-import { AuthContext } from '../Providers/AuthProvider';
-import { toast } from 'react-toastify';
 
 const Login = () => {
     // navigate
@@ -19,7 +19,7 @@ const Login = () => {
     const location = useLocation();
     const from = location.state?.from?.pathname || '/';
 
-    const { signIn, googleSignIn } = useContext(AuthContext);
+    const { signIn, googleSignIn } = useAuth();
     const [type, setType] = useState('password');
     const { register, handleSubmit, formState: { errors } } = useForm();
     const onSubmit = data => {

@@ -1,7 +1,6 @@
-import React, { useContext } from 'react';
 import { NavLink } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
-import { AuthContext } from '../../Providers/AuthProvider';
+import useAuth from '../../hooks/useAuth';
 
 // react icons
 import { RiBookMarkLine } from 'react-icons/ri';
@@ -12,7 +11,7 @@ import { GiBlackBook } from 'react-icons/gi';
 import { VscSettings } from 'react-icons/vsc';
 
 const DashboardDrawer = () => {
-    const { logOut } = useContext(AuthContext);
+    const { logOut } = useAuth();
     const { pathname } = useLocation();
 
     const role = 'instructor';
@@ -43,7 +42,7 @@ const DashboardDrawer = () => {
                             <NavLink to='/dashboard/addClass' className={`flex items-center gap-2 hover:bg-green hover:text-white p-2 rounded-lg duration-300 ease-in-out ${pathname === '/dashboard/addClass' ? 'bg-green text-white' : ''}`}><MdOutlineNoteAdd size={25} /> <span>Add a Class</span></NavLink>
                         </li>
                         <li className='w-full'>
-                            <NavLink to='/dashboard/myClasses:' className={`flex items-center gap-2 hover:bg-green hover:text-white p-2 rounded-lg duration-300 ease-in-out ${pathname === '/dashboard/myClasses' ? 'bg-green text-white' : ''}`}><GiBlackBook size={25} /> <span>My Classes</span></NavLink>
+                            <NavLink to='/dashboard/myClasses' className={`flex items-center gap-2 hover:bg-green hover:text-white p-2 rounded-lg duration-300 ease-in-out ${pathname === '/dashboard/myClasses' ? 'bg-green text-white' : ''}`}><GiBlackBook size={25} /> <span>My Classes</span></NavLink>
                         </li>
                     </ul>
                 }

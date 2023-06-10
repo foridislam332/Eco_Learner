@@ -3,187 +3,187 @@
         "name": "Field Trips and Outdoor Activities",
         "instructor": "John Smith",
         "instructorImage": "https://i.ibb.co/5Wvd4Fj/0002-1.png",
-        "instructorEmail": "johnsmith@example.com",
+        "email": "johnsmith@example.com",
         "image": "https://i.ibb.co/Hh9Tfn9/0006-1.png",
         "des": "Nature exploration classes often involve field trips to natural areas, such as parks, forests, wetlands, or coastal regions. Participants may engage in activities like hiking, wildlife observation, plant identification, nature photography, or nature journaling.",
         "price": 50,
-        "start": "10:00 AM",
-        "enrolledStudents": 12
+        "seats": 1,
+        "students": 24
     },
     {
         "name": "Ecological Concepts and Principles",
         "instructor": "Jessica Thompson",
         "instructorImage": "https://i.ibb.co/82VNJMr/0001-2.png",
-        "instructorEmail": "jessicathompson@example.com",
+        "email": "jessicathompson@example.com",
         "image": "https://i.ibb.co/7YMdRtQ/0007-2.png",
         "des": "These classes provide an introduction to ecological concepts, including biodiversity, food webs, ecosystems, and environmental sustainability. Participants learn about the interconnections between living organisms and their habitats.",
         "price": 40,
-        "start": "11:30 AM",
-        "enrolledStudents": 8
+        "seats": 6,
+        "students": 23
     },
     {
         "name": "Environmental Stewardship",
         "instructor": "Michael Davis",
         "instructorImage": "https://i.ibb.co/0nXPLb9/0007-3.png",
-        "instructorEmail": "michaeldavis@example.com",
+        "email": "michaeldavis@example.com",
         "image": "https://i.ibb.co/LQ8JKGG/0000-3.png",
         "des": "Nature exploration classes often emphasize the importance of environmental stewardship and conservation. Participants may learn about human impacts on ecosystems, the importance of preserving natural habitats, and practical ways to promote sustainable practices.",
         "price": 35,
-        "start": "2:00 PM",
-        "enrolledStudents": 10
+        "seats": 10,
+        "students": 25
     },
     {
         "name": "Natural History and Phenomena",
         "instructor": "Sarah Adams",
         "instructorImage": "https://i.ibb.co/SQJDSh1/0004-6.png",
-        "instructorEmail": "sarahadams@example.com",
+        "email": "sarahadams@example.com",
         "image": "https://i.ibb.co/5vW0kwR/0001-4.png",
         "des": "Participants may explore topics related to natural history, such as geology, climate, weather patterns, and seasonal changes. They may learn about the flora and fauna of a specific region and study adaptations that allow plants and animals to thrive in their habitats.",
         "price": 45,
-        "start": "9:30 AM",
-        "enrolledStudents": 5
+        "seats": 22,
+        "students": 20
     },
     {
         "name": "Outdoor Skills and Safety",
         "instructor": "David Roberts",
         "instructorImage": "https://i.ibb.co/txj0YWc/0006-4.png",
-        "instructorEmail": "davidroberts@example.com",
+        "email": "davidroberts@example.com",
         "image": "https://i.ibb.co/jhBsHB4/0002-5.png",
         "des": "Nature exploration classes may include instruction on outdoor skills and safety measures. This can involve teaching participants about map reading, navigation, basic survival skills, and how to minimize their impact on the environment during outdoor activities.",
         "price": 55,
-        "start": "1:00 PM",
-        "enrolledStudents": 16
+        "seats": 7,
+        "students": 16
     },
     {
         "name": "Environmental Education and Interpretation",
         "instructor": "Emily Johnson",
         "instructorImage": "https://i.ibb.co/hZ4nvjx/0003-7.png",
-        "instructorEmail": "emilyjohnson@example.com",
+        "email": "emilyjohnson@example.com",
         "image": "https://i.ibb.co/qnGj2J6/0003-6.png",
         "des": "Some nature exploration classes focus on developing skills in environmental education and interpretation. Participants learn techniques for engaging and educating others about the natural world, including designing educational activities, creating interpretive displays, and leading guided nature walks.",
         "price": 30,
-        "start": "3:30 PM",
-        "enrolledStudents": 3
+        "seats": 11,
+        "students": 15
     },
     {
         "name": "Nature Photography",
         "instructor": "Olivia Carter",
         "instructorImage": "https://i.ibb.co/vhxrCG2/0000-8.png",
-        "instructorEmail": "oliviacarter@example.com",
+        "email": "oliviacarter@example.com",
         "image": "https://i.ibb.co/wBtfmw4/0005-8.png",
         "des": "Introduce students to the art of nature photography and teach them about composition, lighting, and capturing wildlife. Take them on photography excursions to picturesque locations and encourage them to document their observations.",
         "price": 60,
-        "start": "4:00 PM",
-        "enrolledStudents": 9
+        "seats": 13,
+        "students": 9
     },
     {
         "name": "Bird Watching",
         "instructor": "Andrew Wilson",
         "instructorImage": "https://i.ibb.co/J31RZzj/0005-5.png",
-        "instructorEmail": "andrewwilson@example.com",
+        "email": "andrewwilson@example.com",
         "image": "https://i.ibb.co/6F1Jjf1/0004-7.png",
         "des": "These classes provide an introduction to ecological concepts, including biodiversity, food webs, ecosystems, and environmental sustainability. Participants learn about the interconnections between living organisms and their habitats.",
         "price": 25,
-        "start": "8:00 AM",
-        "enrolledStudents": 6
+        "seats": 0,
+        "students": 6
     },
     {
         "name": "Nature Art and Crafts",
         "instructor": "John Smith",
         "instructorImage": "https://i.ibb.co/5Wvd4Fj/0002-1.png",
-        "instructorEmail": "johnsmith@example.com",
+        "email": "johnsmith@example.com",
         "image": "https://i.ibb.co/T42cMMj/0008-9.png",
         "des": "Combine creativity with nature appreciation by using natural materials for art and craft projects. Learn about sustainable art practices.",
         "price": 30,
-        "start": "3:00 PM",
-        "enrolledStudents": 7
+        "seats": 16,
+        "students": 7
     },
     {
         "name": "Watershed Exploration",
         "instructor": "John Smith",
         "instructorImage": "https://i.ibb.co/5Wvd4Fj/0002-1.png",
-        "instructorEmail": "johnsmith@example.com",
+        "email": "johnsmith@example.com",
         "image": "https://i.ibb.co/z8xsSrM/0007-10.png",
         "des": "Learn about watersheds, their importance, and the impact of human activities on water quality. Explore local water bodies and conduct experiments.",
         "price": 35,
-        "start": "9:00 AM",
-        "enrolledStudents": 9
+        "seats": 23,
+        "students": 9
     },
     {
         "name": "Wildlife Conservation",
         "instructor": "Michael Davis",
         "instructorImage": "https://i.ibb.co/0nXPLb9/0007-3.png",
-        "instructorEmail": "michaeldavis@example.com",
+        "email": "michaeldavis@example.com",
         "image": "https://i.ibb.co/7ChvYWG/0006-11.png",
         "des": "Explore the importance of wildlife conservation and the challenges faced by endangered species. Learn about conservation strategies and participate in conservation projects.",
         "price": 40,
-        "start": "1:30 PM",
-        "enrolledStudents": 11
+        "seats": 0,
+        "students": 11
     },
     {
         "name": "Forest Ecology",
         "instructor": "Jessica Thompson",
         "instructorImage": "https://i.ibb.co/82VNJMr/0001-2.png",
-        "instructorEmail": "jessicathompson@example.com",
+        "email": "jessicathompson@example.com",
         "image": "https://i.ibb.co/gR4hhDh/0005-12.png",
         "des": "Discover the complex ecosystem of forests and their ecological importance. Learn about forest habitats, tree species, and the impact of deforestation.",
         "price": 35,
-        "start": "10:30 AM",
-        "enrolledStudents": 8
+        "seats": 21,
+        "students": 8
     },
     {
         "name": "Insect and Bug Exploration",
         "instructor": "David Roberts",
         "instructorImage": "https://i.ibb.co/txj0YWc/0006-4.png",
-        "instructorEmail": "davidroberts@example.com",
+        "email": "davidroberts@example.com",
         "image": "https://i.ibb.co/5h3xT2L/0004-13.png",
         "des": "Study the fascinating world of insects and bugs, their behaviors, and ecological roles. Participate in bug hunts and learn about their adaptations.",
         "price": 30,
-        "start": "2:30 PM",
-        "enrolledStudents": 6
+        "seats": 19,
+        "students": 6
     },
     {
         "name": "Plant Identification",
         "instructor": "Emily Johnson",
         "instructorImage": "https://i.ibb.co/hZ4nvjx/0003-7.png",
-        "instructorEmail": "emilyjohnson@example.com",
+        "email": "emilyjohnson@example.com",
         "image": "https://i.ibb.co/hX3MQ6r/0003-14.png",
         "des": "Learn to identify various plant species, study their characteristics, and understand their ecological significance. Explore different habitats and create a plant collection.",
         "price": 25,
-        "start": "9:00 AM",
-        "enrolledStudents": 6
+        "seats": 24,
+        "students": 6
     },
     {
         "name": "Nature Journaling",
         "instructor": "Jessica Thompson",
         "instructorImage": "https://i.ibb.co/82VNJMr/0001-2.png",
-        "instructorEmail": "jessicathompson@example.com",
+        "email": "jessicathompson@example.com",
         "image": "https://i.ibb.co/vszK2sd/0002-15.png",
         "des": "Develop observation skills and express your connection with nature through journaling. Learn drawing and writing techniques to document your outdoor experiences.",
         "price": 30,
-        "start": "11:00 AM",
-        "enrolledStudents": 7
+        "seats": 17,
+        "students": 7
     },
     {
         "name": "Aquatic Ecosystems",
         "instructor": "Sarah Adams",
         "instructorImage": "https://i.ibb.co/SQJDSh1/0004-6.png",
-        "instructorEmail": "sarahadams@example.com",
+        "email": "sarahadams@example.com",
         "image": "https://i.ibb.co/tc1gpp1/0001-16.png",
         "des": "Explore the diversity and importance of aquatic ecosystems, including lakes, rivers, and wetlands. Study aquatic organisms, water quality, and conservation.",
         "price": 35,
-        "start": "1:00 PM",
-        "enrolledStudents": 9
+        "seats": 10,
+        "students": 9
     },
     {
         "name": "Nature Conservation Ethics",
         "instructor": "Michael Davis",
         "instructorImage": "https://i.ibb.co/0nXPLb9/0007-3.png",
-        "instructorEmail": "michaeldavis@example.com",
+        "email": "michaeldavis@example.com",
         "image": "https://i.ibb.co/TL12WRV/0000-17.png",
         "des": "Delve into the ethical considerations of nature conservation and environmental decision-making. Discuss environmental justice, sustainability, and personal responsibility.",
         "price": 40,
-        "start": "3:30 PM",
-        "enrolledStudents": 8
+        "seats": 13,
+        "students": 8
     }
 ]

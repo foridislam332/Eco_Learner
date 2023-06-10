@@ -1,11 +1,10 @@
-import React, { useContext } from 'react';
-import { AuthContext } from '../../../Providers/AuthProvider';
+import useAuth from '../../../hooks/useAuth';
 
 // react icons
 import { FiLogOut } from 'react-icons/fi';
 
 const Profile = () => {
-    const { user, logOut } = useContext(AuthContext);
+    const { user, logOut } = useAuth();
     return (
         <div className="ml-4 relative z-[999] profile hidden md:block group">
             <div

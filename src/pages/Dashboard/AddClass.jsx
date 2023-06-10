@@ -1,17 +1,17 @@
-import React, { useContext } from 'react';
 import { useForm } from 'react-hook-form';
-import { AuthContext } from '../../Providers/AuthProvider';
 import Swal from 'sweetalert2';
 import axios from 'axios';
+import useAuth from '../../hooks/useAuth';
 
 const AddClass = () => {
-    const { user } = useContext(AuthContext);
+    const { user } = useAuth();
     const { register, handleSubmit, formState: { errors } } = useForm();
     const onSubmit = data => {
+        const newClass = { ...data, status: 'pending', students: 0, feedback: '' }
         const api = axios.create({
             baseURL: 'http://localhost:5000',
         });
-        api.post('/classes', data)
+        api.post('/classes', newClass)
             .then(data => {
                 if (data.data.insertedId) {
                     Swal.fire({
@@ -49,7 +49,7 @@ const AddClass = () => {
                         </div>
                         <div className='w-full'>
                             <label className='text-gray' htmlFor="email">Email:</label>
-                            <input id='email' defaultValue={user?.email} {...register("email", { required: true })} className='w-full border border-green py-2 px-3 rounded-md outline-none' />
+                            <input type='email' id='email' defaultValue={user?.email} {...register("email", { required: true })} className='w-full border border-green py-2 px-3 rounded-md outline-none' />
                             {errors.email && <span className='text-red'>This field is required</span>}
                         </div>
                     </div>
@@ -82,9 +82,9 @@ const AddClass = () => {
                         {errors.price && <span className='text-red'>This field is required</span>}
                     </div>
                     <div className='w-full'>
-                        <label className='text-gray' htmlFor="student">Students:</label>
-                        <input id='student' defaultValue={0} {...register("enrolledStudents", { required: true })} className='w-full border border-green py-2 px-3 rounded-md outline-none' />
-                        {errors.student && <span className='text-red'>This field is required</span>}
+                        <label className='text-gray' htmlFor="seats">Available seats:</label>
+                        <input id='seats' placeholder='Available seats' {...register("seats", { required: true })} className='w-full border border-green py-2 px-3 rounded-md outline-none' />
+                        {errors.seats && <span className='text-red'>This field is required</span>}
                     </div>
                     <div className='w-full'>
                         <button className='overflow-hidden btn_primary w-full border border-green' >Add Class</button>
