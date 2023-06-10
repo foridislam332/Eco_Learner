@@ -12,6 +12,7 @@ import PrivateRoute from "./PrivateRoute";
 import EnrolledClasses from "../pages/Dashboard/EnrolledClasses";
 import AddClass from "../pages/Dashboard/AddClass";
 import MyClasses from "../pages/Dashboard/MyClasses";
+import UpdateMyClass from "../pages/Dashboard/UpdateMyClass";
 
 const routes = createBrowserRouter([
     {
@@ -58,12 +59,17 @@ const routes = createBrowserRouter([
                 element: <EnrolledClasses></EnrolledClasses>
             },
             {
+                path: 'myClasses',
+                element: <MyClasses></MyClasses>
+            },
+            {
                 path: 'addClass',
                 element: <AddClass></AddClass>
             },
             {
-                path: 'myClasses',
-                element: <MyClasses></MyClasses>
+                path: 'updateClass/:id',
+                element: <UpdateMyClass></UpdateMyClass>,
+                loader: ({ params }) => fetch(`http://localhost:5000/classes/${params.id}`)
             }
         ]
     }

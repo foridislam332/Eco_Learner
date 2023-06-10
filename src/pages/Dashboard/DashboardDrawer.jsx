@@ -39,10 +39,10 @@ const DashboardDrawer = () => {
                 {
                     role === 'instructor' && <ul className='px-6 flex flex-col gap-5 mt-5 items-start'>
                         <li className='w-full'>
-                            <NavLink to='/dashboard/addClass' className={`flex items-center gap-2 hover:bg-green hover:text-white p-2 rounded-lg duration-300 ease-in-out ${pathname === '/dashboard/addClass' ? 'bg-green text-white' : ''}`}><MdOutlineNoteAdd size={25} /> <span>Add a Class</span></NavLink>
+                            <NavLink to='/dashboard/myClasses' className={`flex items-center gap-2 hover:bg-green hover:text-white p-2 rounded-lg duration-300 ease-in-out ${pathname === '/dashboard/myClasses' ? 'bg-green text-white' : ''}`}><GiBlackBook size={25} /> <span>My Classes</span></NavLink>
                         </li>
                         <li className='w-full'>
-                            <NavLink to='/dashboard/myClasses' className={`flex items-center gap-2 hover:bg-green hover:text-white p-2 rounded-lg duration-300 ease-in-out ${pathname === '/dashboard/myClasses' ? 'bg-green text-white' : ''}`}><GiBlackBook size={25} /> <span>My Classes</span></NavLink>
+                            <NavLink to='/dashboard/addClass' className={`flex items-center gap-2 hover:bg-green hover:text-white p-2 rounded-lg duration-300 ease-in-out ${pathname === '/dashboard/addClass' ? 'bg-green text-white' : ''}`}><MdOutlineNoteAdd size={25} /> <span>Add a Class</span></NavLink>
                         </li>
                     </ul>
                 }
