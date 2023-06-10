@@ -13,7 +13,6 @@ const ManageClasses = () => {
         return statusOrder[a.status] - statusOrder[b.status];
     });
 
-
     const handleStatus = (id, status) => {
         const api = axios.create({
             baseURL: 'http://localhost:5000',

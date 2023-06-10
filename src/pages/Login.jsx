@@ -11,15 +11,16 @@ import { MdAlternateEmail, MdLockOutline } from 'react-icons/md';
 import { AiOutlineEyeInvisible, AiOutlineEye } from 'react-icons/ai';
 
 // image
-import googleImg from '../assets/images/google.png';
+import SocialLogin from '../components/SocialLogin';
 
 const Login = () => {
+    const { signIn } = useAuth();
+
     // navigate
     const navigate = useNavigate();
     const location = useLocation();
     const from = location.state?.from?.pathname || '/';
 
-    const { signIn, googleSignIn } = useAuth();
     const [type, setType] = useState('password');
     const { register, handleSubmit, formState: { errors } } = useForm();
     const onSubmit = data => {
@@ -36,19 +37,6 @@ const Login = () => {
             })
     };
 
-    const signInWithGoogle = () => {
-        googleSignIn()
-            .then(() => {
-                navigate(from, { replace: true })
-            })
-            .catch(error => {
-                toast.error(error.message, {
-                    position: "top-right",
-                    autoClose: 4000,
-                    theme: "light",
-                });
-            })
-    }
     return (
         <section>
             <Breadcrumbs title="Login" />
@@ -97,10 +85,7 @@ const Login = () => {
                             <span className='border-t border-red w-full block'></span>
                         </div>
 
-                        <button onClick={signInWithGoogle} className='btn_primary flex items-center justify-center gap-3 border w-full'>
-                            <img className='w-6' src={googleImg} alt="google" />
-                            <p className='text-lg'>Login with Google</p>
-                        </button>
+                        <SocialLogin />
 
                         <p className='mt-5 text-center text-gray'>New to Eco Learner? <Link className='text-green' to='/signUp'>Sign Up</Link></p>
                     </div>

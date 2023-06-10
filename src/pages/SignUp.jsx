@@ -13,16 +13,22 @@ import { HiOutlinePhotograph } from 'react-icons/hi';
 import { BiUserPin } from 'react-icons/bi';
 import { BsShieldCheck } from 'react-icons/bs';
 
-// image
-import googleImg from '../assets/images/google.png';
+import Swal from 'sweetalert2';
+import axios from 'axios';
+import SocialLogin from '../components/SocialLogin';
 
 const SignUp = () => {
+    const { signUpUser, profileUpdate, googleSignIn } = useAuth();
+
     // navigate
     const navigate = useNavigate();
     const location = useLocation();
     const from = location.state?.from?.pathname || '/';
 
-    const { signUpUser, profileUpdate, googleSignIn } = useAuth();
+    // post api
+    const api = axios.create({
+        baseURL: 'http://localhost:5000',
+    });
 
     const [type, setType] = useState('password');
     const { register, handleSubmit, formState: { errors } } = useForm();
@@ -61,7 +67,22 @@ const SignUp = () => {
             .then((result) => {
                 profileUpdate(result.user, data.name, data.photo)
                     .then(() => {
-                        navigate(from, { replace: true })
+                        const user = { name: data.name, email: data.email, role: 'student' };
+
+                        api.post('/users', user)
+                            .then(data => {
+                                if (data.data.insertedId) {
+                                    Swal.fire({
+                                        position: 'center',
+                                        icon: 'success',
+                                        title: 'User created successfully',
+                                        showConfirmButton: false,
+                                        timer: 2500
+                                    });
+                                    navigate(from, { replace: true })
+                                }
+                            })
+
                     }).catch((error) => {
                         toast.error(error.message, {
                             position: "top-right",
@@ -79,19 +100,6 @@ const SignUp = () => {
             })
     };
 
-    const signInWithGoogle = () => {
-        googleSignIn()
-            .then((result) => {
-                navigate(from, { replace: true })
-            })
-            .catch(error => {
-                toast.error(error.message, {
-                    position: "top-right",
-                    autoClose: 4000,
-                    theme: "light",
-                });
-            })
-    }
     return (
         <section>
             <Breadcrumbs title="Sign Up" />
@@ -159,10 +167,7 @@ const SignUp = () => {
                             <span className='border-t border-red w-full block'></span>
                         </div>
 
-                        <button onClick={signInWithGoogle} className='btn_primary flex items-center justify-center gap-3 border w-full'>
-                            <img className='w-6' src={googleImg} alt="google" />
-                            <p className='text-lg'>Login with Google</p>
-                        </button>
+                        <SocialLogin />
 
                         <p className='mt-5 text-center text-gray'>Already have an account? <Link className='text-green' to='/login'>Login</Link></p>
                     </div>
