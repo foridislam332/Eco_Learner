@@ -15,6 +15,8 @@ import MyClasses from "../pages/Dashboard/MyClasses";
 import UpdateMyClass from "../pages/Dashboard/UpdateMyClass";
 import ManageClasses from "../pages/Dashboard/ManageClasses";
 import ManageUsers from "../pages/Dashboard/ManageUsers";
+import AdminRoute from "./AdminRoute";
+import InstructorRoute from "./InstructorRoute";
 
 const routes = createBrowserRouter([
     {
@@ -62,24 +64,24 @@ const routes = createBrowserRouter([
             },
             {
                 path: 'myClasses',
-                element: <MyClasses></MyClasses>
+                element: <InstructorRoute><MyClasses></MyClasses></InstructorRoute>
             },
             {
                 path: 'addClass',
-                element: <AddClass></AddClass>
+                element: <InstructorRoute><AddClass></AddClass></InstructorRoute>
             },
             {
                 path: 'updateClass/:id',
-                element: <UpdateMyClass></UpdateMyClass>,
+                element: <InstructorRoute><UpdateMyClass></UpdateMyClass></InstructorRoute>,
                 loader: ({ params }) => fetch(`https://eco-learner-server.vercel.app/classes/${params.id}`)
             },
             {
                 path: 'manageClasses',
-                element: <ManageClasses></ManageClasses>
+                element: <AdminRoute><ManageClasses></ManageClasses></AdminRoute>
             },
             {
                 path: 'manageUsers',
-                element: <ManageUsers></ManageUsers>
+                element: <AdminRoute><ManageUsers></ManageUsers></AdminRoute>
             }
         ]
     }
