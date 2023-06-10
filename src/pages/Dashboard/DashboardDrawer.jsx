@@ -14,7 +14,7 @@ const DashboardDrawer = () => {
     const { logOut } = useAuth();
     const { pathname } = useLocation();
 
-    const role = 'instructor';
+    const role = 'admin';
     return (
         <div className='w-80 sticky top-0 h-screen bg-white rounded-lg flex flex-col justify-between shadow-xl shadow-indigo-500/20'>
             <nav>
@@ -54,7 +54,7 @@ const DashboardDrawer = () => {
                             <NavLink to='/dashboard/manageClasses' className={`flex items-center gap-2 hover:bg-green hover:text-white p-2 rounded-lg duration-300 ease-in-out ${pathname === '/dashboard/manageClasses' ? 'bg-green text-white' : ''}`}><VscSettings size={25} /> <span>Manage Classes</span></NavLink>
                         </li>
                         <li className='w-full'>
-                            <NavLink to='/dashboard/manageUsers:' className={`flex items-center gap-2 hover:bg-green hover:text-white p-2 rounded-lg duration-300 ease-in-out ${pathname === '/dashboard/manageUsers' ? 'bg-green text-white' : ''}`}><MdOutlineManageAccounts size={25} /> <span>Manage Users</span></NavLink>
+                            <NavLink to='/dashboard/manageUsers' className={`flex items-center gap-2 hover:bg-green hover:text-white p-2 rounded-lg duration-300 ease-in-out ${pathname === '/dashboard/manageUsers' ? 'bg-green text-white' : ''}`}><MdOutlineManageAccounts size={25} /> <span>Manage Users</span></NavLink>
                         </li>
                     </ul>
                 }

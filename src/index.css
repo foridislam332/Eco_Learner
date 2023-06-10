@@ -43,3 +43,20 @@ body {
     transform: scale(1.5);
     opacity: 0;
 }
+
+/* disable button */
+.btn_disable::after {
+    background: #afaeae !important;
+}
+
+.btn_disable {
+    color: #fff;
+    border: none;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.btn_disable:hover {
+    color: #fff;
+    background: #afaeae;
+}

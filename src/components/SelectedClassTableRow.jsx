@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 
 // react icons
 import { FaRegTrashAlt, FaRegCreditCard } from 'react-icons/fa';

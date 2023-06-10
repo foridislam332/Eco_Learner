@@ -1,7 +1,7 @@
 // react icons
 import { FaPencilAlt } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
-const MyClassesTableRow = ({ item, index, handleDelete }) => {
+const MyClassesTableRow = ({ item, index }) => {
     const { _id, image, name, students, status, feedback } = item;
 
     return (
