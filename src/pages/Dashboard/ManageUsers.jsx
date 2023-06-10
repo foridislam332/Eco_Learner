@@ -2,10 +2,34 @@ import React from 'react';
 import Loading from '../../components/Loading';
 import useUsers from '../../hooks/useUsers';
 import UserTableRow from '../../components/UserTableRow';
+import axios from 'axios';
+import Swal from 'sweetalert2';
 
 const ManageUsers = () => {
-    const [users] = useUsers();
+    const [users, , refetch] = useUsers();
 
+    // post api
+    const api = axios.create({
+        baseURL: 'http://localhost:5000',
+    });
+
+    const handleRole = (email, role) => {
+        if (users.length) {
+            api.patch(`/users/${email}?role=${role}`)
+                .then(data => {
+                    if (data.data.modifiedCount > 0) {
+                        Swal.fire({
+                            position: 'center',
+                            icon: 'success',
+                            title: `Make ${role} successfully`,
+                            showConfirmButton: false,
+                            timer: 2500
+                        });
+                        refetch()
+                    }
+                })
+        }
+    }
     return (
         <div className='shadow-xl shadow-indigo-500/20 my-5 p-5 rounded-lg bg-white'>
             <div className='mb-8'>
@@ -32,6 +56,7 @@ const ManageUsers = () => {
                                     key={item._id}
                                     item={item}
                                     index={index}
+                                    handleRole={handleRole}
                                 />)
                             }
                         </tbody>

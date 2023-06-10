@@ -1,6 +1,6 @@
 
-const UserTableRow = ({ item, index }) => {
-    const { _id, name, email, photo, role } = item;
+const UserTableRow = ({ item, index, handleRole }) => {
+    const { name, email, photo, role } = item;
 
     return (
         <tr className="border-b border-green text-gray even:bg-dark even:text-white">
@@ -22,8 +22,9 @@ const UserTableRow = ({ item, index }) => {
             <td className="py-3 px-2 text-center capitalize">{role}</td>
             <td className="py-3">
                 <div className='flex items-center justify-center gap-4'>
-                    <button className="btn_primary border border-green">Make Instructor</button>
-                    <button className="btn_primary border border-green">Make Admin</button>
+                    <button disabled={role === 'student' ? false : true} onClick={() => handleRole(email, 'instructor')} className={`btn_primary overflow-hidden border border-green ${role === 'student' ? '' : 'btn_disable'}`}>Make Instructor</button>
+
+                    <button disabled={role === 'student' ? false : true} onClick={() => handleRole(email, 'admin')} className={`btn_primary overflow-hidden border border-green ${role === 'student' ? '' : 'btn_disable'}`}>Make Admin</button>
                 </div>
             </td>
         </tr>
