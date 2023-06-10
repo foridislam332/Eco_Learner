@@ -3,10 +3,12 @@ import useAuth from '../../hooks/useAuth';
 // react icons
 import { TfiAngleDown } from 'react-icons/tfi';
 import { BsSearch } from 'react-icons/bs';
+import useCurrentUser from '../../hooks/useCurrentUser';
 
 const DashboardNav = () => {
     const { user } = useAuth();
-    const role = 'Student';
+    const [currentUser] = useCurrentUser();
+    const role = currentUser.role;
     return (
         <div className='sticky top-0 z-[999] bg-white flex items-center justify-between px-5 rounded-lg shadow-xl shadow-indigo-500/20'>
             <div className='border border-green w-96 px-4 py-3 rounded-3xl hidden md:flex items-center'>

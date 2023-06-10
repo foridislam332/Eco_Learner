@@ -1,9 +1,12 @@
 import ActiveLink from './ActiveLink';
 import Profile from './Profile';
 import useAuth from '../../../hooks/useAuth';
+import useCurrentUser from '../../../hooks/useCurrentUser';
 
 const NavItem = () => {
     const { user } = useAuth();
+    const [currentUser] = useCurrentUser();
+    const role = currentUser.role;
     return (
         <>
             <li>
@@ -16,7 +19,7 @@ const NavItem = () => {
                 <ActiveLink to='/classes'>Classes</ActiveLink>
             </li>
             <li>
-                <ActiveLink to='/dashboard/studentHome'>Dashboard </ActiveLink>
+                <ActiveLink to={`${role === 'student' && '/dashboard/studentHome' || role === 'instructor' && '/dashboard/myClasses' || role === 'admin' && '/dashboard/manageClasses'}`}>Dashboard </ActiveLink>
             </li>
             <li>
                 {

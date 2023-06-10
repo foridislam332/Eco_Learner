@@ -6,7 +6,7 @@ import Swal from 'sweetalert2';
 import axios from 'axios';
 
 const SelectedClasses = () => {
-    const [selectedClasses, loading, refetch] = useSelectedClasses();
+    const [selectedClasses, , refetch] = useSelectedClasses();
     const { user } = useAuth();
 
     if (user) {
@@ -18,7 +18,6 @@ const SelectedClasses = () => {
     });
 
     const handleDelete = (id) => {
-        console.log(id)
         Swal.fire({
             title: 'Are you sure?',
             text: "You won't be able to revert this!",

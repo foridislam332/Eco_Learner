@@ -4,7 +4,8 @@ import React from 'react';
 import { FaRegTrashAlt, FaRegCreditCard } from 'react-icons/fa';
 
 const SelectedClassTableRow = ({ item, index, handleDelete }) => {
-    const { _id, image, name, price, students } = item;
+    const { _id, image, name, price, seats } = item;
+
     return (
         <tr className="border-b border-green even:bg-dark even:text-white">
             <td className="py-3 px-4 text-left text-blue">
@@ -18,7 +19,7 @@ const SelectedClassTableRow = ({ item, index, handleDelete }) => {
             <td className="py-3 px-4 text-left text-green">
                 {name}
             </td>
-            <td className="py-3 px-2 text-center">{25 - students}</td>
+            <td className="py-3 px-2 text-center">{seats}</td>
             <td className="py-3 px-2 text-center">${price}</td>
             <td className="min-w-[120px] py-3 px-4 text-center">
                 <div className='flex items-center justify-center gap-2'>

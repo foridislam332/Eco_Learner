@@ -10,7 +10,7 @@ import { BiBook } from 'react-icons/bi'
 
 const ClassesCard = ({ item }) => {
     const { user } = useAuth();
-    const [selectedClasses, loading, refetch] = useSelectedClasses();
+    const [selectedClasses, , refetch] = useSelectedClasses();
     const { name, instructor, image, des, price, seats, students } = item;
 
     const { pathname } = useLocation();
@@ -36,7 +36,7 @@ const ClassesCard = ({ item }) => {
                 if (data.data.insertedId) {
                     refetch();
                     toast.success("Class Selected", {
-                        position: "top-right",
+                        position: "bottom-right",
                         autoClose: 3000,
                         theme: "light",
                     });
@@ -44,7 +44,7 @@ const ClassesCard = ({ item }) => {
             })
     }
     return (
-        <div className={`${seats === 0 ? 'bg-red' : 'bg-white'} hover:shadow-custom rounded-md flex flex-col justify-between hover:-translate-y-4 duration-300 ease-in-out`}>
+        <div className={`${seats === 0 ? 'bg-red' : 'bg-white'} hover:shadow-xl rounded-md flex flex-col justify-between hover:-translate-y-4 duration-300 ease-in-out`}>
             <img className='rounded-md' src={image} alt={name} />
 
             <div className={`flex-1 px-5 pt-5`}>
@@ -54,7 +54,7 @@ const ClassesCard = ({ item }) => {
             </div>
 
             <div className={`px-5 pb-5 ${seats === 0 ? 'text-dark' : 'text-gray'}`}>
-                <p className='mt-3 text-sm'>{des.slice(0, 65)} ...</p>
+                <p className='mt-3 text-sm'>{des?.slice(0, 65)} ...</p>
 
                 <div className='flex items-center justify-between mt-2'>
                     <div>

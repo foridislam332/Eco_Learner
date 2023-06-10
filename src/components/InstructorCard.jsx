@@ -10,7 +10,7 @@ const InstructorCard = ({ item, instructorClasses, index }) => {
     const { pathname } = useLocation();
 
     return (
-        <div className='bg-white border border-orange hover:border-green transition-all duration-300 ease-in-out hover:shadow-custom rounded-md cursor-pointer px-5 py-10 group'>
+        <div className='bg-white border border-orange hover:border-green transition-all duration-300 ease-in-out hover:shadow-xl rounded-md cursor-pointer px-5 py-10 group'>
             <div className='h-52 w-52 mx-auto rounded-full border-[5px] border-orange border-double group-hover:border-green duration-300 ease-in-out'>
                 <img className='rounded-full w-full h-full' src={instructorImage} alt={instructor} />
             </div>

@@ -9,12 +9,14 @@ import { AiOutlineHome } from 'react-icons/ai';
 import { FiLogOut } from 'react-icons/fi';
 import { GiBlackBook } from 'react-icons/gi';
 import { VscSettings } from 'react-icons/vsc';
+import useCurrentUser from '../../hooks/useCurrentUser';
 
 const DashboardDrawer = () => {
     const { logOut } = useAuth();
     const { pathname } = useLocation();
 
-    const role = 'admin';
+    const [currentUser] = useCurrentUser();
+    const role = currentUser.role;
     return (
         <div className='w-80 sticky top-0 h-screen bg-white rounded-lg flex flex-col justify-between shadow-xl shadow-indigo-500/20'>
             <nav>
