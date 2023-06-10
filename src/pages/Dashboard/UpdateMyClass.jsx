@@ -8,9 +8,9 @@ import Swal from 'sweetalert2';
 const UpdateMyClass = () => {
     const classData = useLoaderData();
     const navigate = useNavigate();
+
     const { register, handleSubmit, formState: { errors } } = useForm();
     const onSubmit = data => {
-        console.log(data)
         const api = axios.create({
             baseURL: 'http://localhost:5000',
         });

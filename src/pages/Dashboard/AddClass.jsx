@@ -2,9 +2,12 @@ import { useForm } from 'react-hook-form';
 import Swal from 'sweetalert2';
 import axios from 'axios';
 import useAuth from '../../hooks/useAuth';
+import { useNavigate } from 'react-router-dom';
 
 const AddClass = () => {
     const { user } = useAuth();
+    const navigate = useNavigate();
+
     const { register, handleSubmit, formState: { errors } } = useForm();
     const onSubmit = data => {
         const newClass = { ...data, status: 'pending', students: 0, feedback: '' }
@@ -17,10 +20,11 @@ const AddClass = () => {
                     Swal.fire({
                         position: 'center',
                         icon: 'success',
-                        title: 'Class add success',
+                        title: 'Class added success',
                         showConfirmButton: false,
                         timer: 3000
-                    })
+                    });
+                    navigate('/dashboard/myClasses', { replace: true })
                 }
             })
     };
