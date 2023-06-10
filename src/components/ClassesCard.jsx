@@ -7,10 +7,13 @@ import useAuth from '../hooks/useAuth';
 // react icons
 import { HiOutlineUsers } from 'react-icons/hi'
 import { BiBook } from 'react-icons/bi'
+import useCurrentUser from '../hooks/useCurrentUser';
 
 const ClassesCard = ({ item }) => {
     const { user } = useAuth();
     const [selectedClasses, , refetch] = useSelectedClasses();
+    const [currentUser] = useCurrentUser();
+    const role = currentUser.role;
     const { name, instructor, image, des, price, seats, students } = item;
 
     const { pathname } = useLocation();
@@ -74,7 +77,7 @@ const ClassesCard = ({ item }) => {
                     pathname === '/' ? null : <div className='flex-1 flex items-end justify-center mt-5'>
                         {
                             user?.email ? <button onClick={() => handleSelectedClass(item)}
-                                disabled={seats === 0 ? true : false} className='btn_primary border border-green'>{isExists ? 'Selected' : 'Select Class'}</button> :
+                                disabled={seats === 0 || role === 'admin' || role === 'instructor' ? true : false} className={`btn_primary border border-green ${seats === 0 || role === 'admin' || role === 'instructor' ? 'btn_disable' : null}`}>{isExists ? 'Selected' : 'Select Class'}</button> :
                                 <Link to='/login' className='btn_primary border border-green'>Select Class</Link>
                         }
                     </div>
