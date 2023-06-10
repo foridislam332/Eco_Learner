@@ -35,7 +35,9 @@ const ManageClassesCard = ({ item, handleStatus }) => {
                         Deny
                     </button>
 
-                    <FeedbackModal id={_id} />
+                    {
+                        status !== 'pending' && <FeedbackModal id={_id} />
+                    }
                 </div>
             </div>
         </div>
