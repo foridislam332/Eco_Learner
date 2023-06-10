@@ -19,7 +19,10 @@ const NavItem = () => {
                 <ActiveLink to='/classes'>Classes</ActiveLink>
             </li>
             <li>
-                <ActiveLink to={`${role === 'student' && '/dashboard/studentHome' || role === 'instructor' && '/dashboard/myClasses' || role === 'admin' && '/dashboard/manageClasses'}`}>Dashboard </ActiveLink>
+                {
+                    role ? <ActiveLink to={`${role === 'student' && '/dashboard/studentHome' || role === 'instructor' && '/dashboard/myClasses' || role === 'admin' && '/dashboard/manageClasses'}`}>Dashboard</ActiveLink> :
+                        null
+                }
             </li>
             <li>
                 {
