@@ -1,6 +1,7 @@
 import { NavLink } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
 import useAuth from '../../hooks/useAuth';
+import useCurrentUser from '../../hooks/useCurrentUser';
 
 // react icons
 import { RiBookMarkLine } from 'react-icons/ri';
@@ -9,7 +10,7 @@ import { AiOutlineHome } from 'react-icons/ai';
 import { FiLogOut } from 'react-icons/fi';
 import { GiBlackBook } from 'react-icons/gi';
 import { VscSettings } from 'react-icons/vsc';
-import useCurrentUser from '../../hooks/useCurrentUser';
+import MobileDrawerNav from './MobileDrawerNav';
 
 const DashboardDrawer = () => {
     const { logOut } = useAuth();
@@ -18,8 +19,8 @@ const DashboardDrawer = () => {
     const [currentUser] = useCurrentUser();
     const role = currentUser.role;
     return (
-        <div className='w-80 sticky top-0 h-screen bg-white rounded-lg flex flex-col justify-between shadow-xl shadow-indigo-500/20'>
-            <nav>
+        <div className='w-20 lg:w-80 sticky top-0 h-screen bg-white rounded-lg flex flex-col justify-between shadow-xl shadow-indigo-500/20'>
+            <nav className='hidden lg:block'>
                 <div className='text-center py-4'>
                     <NavLink to='/' className='text-3xl font-semibold text-green'>Eco Learner</NavLink>
                 </div>
@@ -66,12 +67,15 @@ const DashboardDrawer = () => {
                     <NavLink to='/' className='flex items-center gap-2 bg-green text-white px-6 py-2 rounded-lg duration-300 ease-in-out text-center'><AiOutlineHome size={25} /> <span>Back to Home</span></NavLink>
                 </div>
             </nav>
-            <div className='mb-6 w-full px-6'>
+
+            <MobileDrawerNav role={role} pathname={pathname} />
+            <div className='mb-6 w-full px-2 lg:px-6'>
                 <button
+                    title='LogOut'
                     className="w-full bg-red text-white font-medium py-2 mt-3 flex items-center justify-center gap-3 rounded-lg"
                     onClick={() => logOut()}
                 >
-                    <span>LogOut</span> <FiLogOut className='text-white' />
+                    <span className='hidden lg:inline'>LogOut</span> <FiLogOut className='text-white text-2xl' />
                 </button>
             </div>
         </div>
