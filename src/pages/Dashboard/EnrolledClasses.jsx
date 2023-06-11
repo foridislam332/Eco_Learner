@@ -1,8 +1,20 @@
 import SelectedClassTableRow from '../../components/SelectedClassTableRow';
 import Loading from '../../components/Loading';
+import useAuth from '../../hooks/useAuth';
+import useAxiosSecure from '../../hooks/useAxiosSecure';
+import { useQuery } from '@tanstack/react-query';
+import EnrolledClassesCard from '../../components/EnrolledClassesCard';
 
 const EnrolledClasses = () => {
-    const enrolledClasses = [];
+    const { user } = useAuth();
+    const [axiosSecure] = useAxiosSecure();
+    const { data: enrolledClasses = [], isLoading: loading, refetch } = useQuery({
+        queryKey: ['enrolledClasses'],
+        queryFn: async () => {
+            const res = await axiosSecure(`/enrollStudent/${user?.email}`);
+            return res.data;
+        }
+    })
 
     return (
         <div className='shadow-xl shadow-indigo-500/20 my-5 p-5 rounded-lg bg-white'>
@@ -13,28 +25,10 @@ const EnrolledClasses = () => {
 
             {/* Selected Classes table */}
             {
-                enrolledClasses.length === 0 ? <div className='-mt-20'><Loading /></div> : <div className='overflow-x-auto'>
-                    <table className="table w-full border border-green">
-                        <thead>
-                            <tr className="bg-green text-white uppercase leading-normal">
-                                <th className="py-3 px-4 text-left">#</th>
-                                <th className="py-3 px-4 text-left">Photo</th>
-                                <th className="py-3 px-4 text-left">Name</th>
-                                <th className="py-3 px-2 text-center">Seats</th>
-                                <th className="py-3 px-2 text-center">Price</th>
-                                <th className="py-3 px-4 text-center">Action</th>
-                            </tr>
-                        </thead>
-                        <tbody className="text-gray-600 font-medium">
-                            {
-                                enrolledClasses.map((item, index) => <SelectedClassTableRow
-                                    key={item._id}
-                                    item={item}
-                                    index={index}
-                                />)
-                            }
-                        </tbody>
-                    </table>
+                enrolledClasses.length === 0 ? <div className='-mt-20'><Loading /></div> : <div className='grid grid-cols-1 md:grid-cols-3 gap-10'>
+                    {
+                        enrolledClasses.map((item) => <EnrolledClassesCard key={item._id} item={item} />)
+                    }
                 </div>
             }
         </div>

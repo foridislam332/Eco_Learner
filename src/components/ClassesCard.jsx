@@ -9,7 +9,6 @@ import { HiOutlineUsers } from 'react-icons/hi'
 import { BiBook } from 'react-icons/bi'
 import useCurrentUser from '../hooks/useCurrentUser';
 import useAxiosSecure from '../hooks/useAxiosSecure';
-import { useState } from 'react';
 
 const ClassesCard = ({ item }) => {
     const { name, instructor, image, des, price, seats, students } = item;
