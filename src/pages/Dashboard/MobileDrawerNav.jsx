@@ -2,7 +2,7 @@ import { NavLink } from 'react-router-dom';
 
 // react icons
 import { RiBookMarkLine } from 'react-icons/ri';
-import { MdOutlineBookmarkAdded, MdOutlineNoteAdd, MdOutlineManageAccounts } from 'react-icons/md';
+import { MdOutlineBookmarkAdded, MdOutlineNoteAdd, MdOutlineManageAccounts, MdOutlineHistory } from 'react-icons/md';
 import { AiOutlineHome } from 'react-icons/ai';
 import { GiBlackBook } from 'react-icons/gi';
 import { VscSettings } from 'react-icons/vsc';
@@ -31,6 +31,13 @@ const MobileDrawerNav = ({ role, pathname }) => {
                             to='/dashboard/enrolledClasses'
                             className={`block w-full p-3 rounded-lg ${pathname === '/dashboard/enrolledClasses' ? 'bg-green text-white' : 'text-green'}`}
                         ><MdOutlineBookmarkAdded size={35} /></NavLink>
+                    </li>
+                    <li>
+                        <NavLink
+                            title='Payment History'
+                            to='/dashboard/paymentHistory'
+                            className={`block w-full p-3 rounded-lg ${pathname === '/dashboard/paymentHistory' ? 'bg-green text-white' : 'text-green'}`}
+                        ><MdOutlineHistory size={35} /></NavLink>
                     </li>
                 </ul>
             }

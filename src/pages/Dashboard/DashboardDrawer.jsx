@@ -6,7 +6,7 @@ import MobileDrawerNav from './MobileDrawerNav';
 
 // react icons
 import { RiBookMarkLine } from 'react-icons/ri';
-import { MdOutlineBookmarkAdded, MdOutlineNoteAdd, MdOutlineManageAccounts } from 'react-icons/md';
+import { MdOutlineBookmarkAdded, MdOutlineNoteAdd, MdOutlineManageAccounts, MdOutlineHistory } from 'react-icons/md';
 import { AiOutlineHome } from 'react-icons/ai';
 import { FiLogOut } from 'react-icons/fi';
 import { GiBlackBook } from 'react-icons/gi';
@@ -34,6 +34,9 @@ const DashboardDrawer = () => {
                         </li>
                         <li className='w-full'>
                             <NavLink to='/dashboard/enrolledClasses' className={`flex items-center gap-2 hover:bg-green hover:text-white p-2 rounded-lg duration-300 ease-in-out ${pathname === '/dashboard/enrolledClasses' ? 'bg-green text-white' : ''}`}><MdOutlineBookmarkAdded size={25} /> <span>Enrolled Classes</span></NavLink>
+                        </li>
+                        <li className='w-full'>
+                            <NavLink to='/dashboard/paymentHistory' className={`flex items-center gap-2 hover:bg-green hover:text-white p-2 rounded-lg duration-300 ease-in-out ${pathname === '/dashboard/paymentHistory' ? 'bg-green text-white' : ''}`}><MdOutlineHistory size={25} /> <span>Payment History</span></NavLink>
                         </li>
                     </ul>
                 }

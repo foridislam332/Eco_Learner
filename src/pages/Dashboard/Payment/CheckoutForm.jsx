@@ -75,11 +75,13 @@ const CheckoutForm = ({ classData }) => {
         if (paymentIntent.status === "succeeded") {
             const transactionId = paymentIntent.id;
             const payment = {
+                name: user?.displayName,
                 email: user?.email,
                 transactionId: transactionId,
                 price: price,
                 classId: classData._id,
                 date: new Date().toISOString(),
+                status: 'pending'
             }
 
             axiosSecure.post('/payments', payment)

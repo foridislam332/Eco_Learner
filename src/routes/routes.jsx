@@ -18,6 +18,7 @@ import ManageUsers from "../pages/Dashboard/ManageUsers";
 import AdminRoute from "./AdminRoute";
 import InstructorRoute from "./InstructorRoute";
 import Payment from "../pages/Dashboard/Payment/Payment";
+import PaymentHistory from "../pages/Dashboard/Payment/PaymentHistory";
 
 const routes = createBrowserRouter([
     {
@@ -67,6 +68,10 @@ const routes = createBrowserRouter([
                 path: 'payment/:id',
                 element: <Payment></Payment>,
                 loader: ({ params }) => fetch(`http://localhost:5000/selectedClasses/${params.id}`)
+            },
+            {
+                path: 'paymentHistory',
+                element: <PaymentHistory></PaymentHistory>
             },
             {
                 path: 'myClasses',
