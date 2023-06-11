@@ -34,7 +34,7 @@ const routes = createBrowserRouter([
             {
                 path: 'instructorClasses/:instructor',
                 element: <InstructorClasses />,
-                loader: ({ params }) => fetch(`http://localhost:5000/instructors/${params.instructor}`)
+                loader: ({ params }) => fetch(`https://eco-learner-server.vercel.app/instructors/${params.instructor}`)
             },
             {
                 path: 'classes',
@@ -73,7 +73,7 @@ const routes = createBrowserRouter([
             {
                 path: 'updateClass/:id',
                 element: <InstructorRoute><UpdateMyClass></UpdateMyClass></InstructorRoute>,
-                loader: ({ params }) => fetch(`http://localhost:5000/classes/${params.id}`)
+                loader: ({ params }) => fetch(`https://eco-learner-server.vercel.app/classes/${params.id}`)
             },
             {
                 path: 'manageClasses',
