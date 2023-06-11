@@ -2,6 +2,7 @@ import React from 'react';
 
 // react icons
 import { FaRegTrashAlt, FaRegCreditCard } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 
 const SelectedClassTableRow = ({ item, index, handleDelete }) => {
     const { _id, image, name, price, seats } = item;
@@ -23,9 +24,9 @@ const SelectedClassTableRow = ({ item, index, handleDelete }) => {
             <td className="py-3 px-2 text-center">${price}</td>
             <td className="min-w-[120px] py-3 px-4 text-center">
                 <div className='flex items-center justify-center gap-2'>
-                    <button title='Payment' className="h-10 w-10 flex items-center justify-center bg-green rounded-full text-white shadow-lg hover:shadow-green duration-300">
+                    <Link to={`/dashboard/payment/${_id}`} title='Payment' className="h-10 w-10 flex items-center justify-center bg-green rounded-full text-white shadow-lg hover:shadow-green duration-300">
                         <FaRegCreditCard />
-                    </button>
+                    </Link>
 
                     <button title='Delete' onClick={() => handleDelete(_id)} className="h-10 w-10 flex items-center justify-center bg-green rounded-full text-white shadow-lg hover:shadow-red hover:bg-red duration-300">
                         <FaRegTrashAlt />

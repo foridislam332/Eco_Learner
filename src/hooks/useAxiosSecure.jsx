@@ -4,8 +4,9 @@ import useAuth from './useAuth';
 import { useNavigate } from 'react-router-dom';
 
 const axiosSecure = axios.create({
-    baseURL: 'https://eco-learner-server.vercel.app',
+    baseURL: 'http://localhost:5000',
 });
+
 const useAxiosSecure = () => {
     const { logOut } = useAuth();
     const navigate = useNavigate();

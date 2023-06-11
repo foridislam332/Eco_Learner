@@ -2,6 +2,7 @@ import { NavLink } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
 import useAuth from '../../hooks/useAuth';
 import useCurrentUser from '../../hooks/useCurrentUser';
+import MobileDrawerNav from './MobileDrawerNav';
 
 // react icons
 import { RiBookMarkLine } from 'react-icons/ri';
@@ -10,7 +11,6 @@ import { AiOutlineHome } from 'react-icons/ai';
 import { FiLogOut } from 'react-icons/fi';
 import { GiBlackBook } from 'react-icons/gi';
 import { VscSettings } from 'react-icons/vsc';
-import MobileDrawerNav from './MobileDrawerNav';
 
 const DashboardDrawer = () => {
     const { logOut } = useAuth();
