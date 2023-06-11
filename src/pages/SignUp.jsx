@@ -118,8 +118,9 @@ const SignUp = () => {
                         <form onSubmit={handleSubmit(onSubmit)}>
                             <div className='flex items-center border border-green rounded-lg gap-3 p-3'>
                                 <label htmlFor="name"> <BiUserPin className='text-green text-2xl' /></label>
-                                <input className='w-full border-none outline-none' id='name' placeholder="Enter full name" {...register("name")} />
+                                <input className='w-full border-none outline-none' id='name' placeholder="Enter full name" {...register("name", { required: true })} />
                             </div>
+                            {errors.name && <span className='text-sm text-red ml-1'>Name is required</span>}
 
                             <div className='flex items-center border border-green rounded-lg gap-3 p-3 mt-3'>
                                 <label htmlFor="email"> <MdAlternateEmail className='text-green text-2xl' /></label>
@@ -132,7 +133,7 @@ const SignUp = () => {
                                 <input type={type} className='w-full border-none outline-none' id='password' placeholder="password" {...register("password", { required: true })} />
                                 <button onClick={() => setType(type === 'password' ? 'text' : 'password')}>
                                     {
-                                        type === 'password' ? <AiOutlineEyeInvisible /> : <AiOutlineEye />
+                                        type === 'password' ? <AiOutlineEye /> : <AiOutlineEyeInvisible />
                                     }
                                 </button>
                             </div>
@@ -143,7 +144,7 @@ const SignUp = () => {
                                 <input type={type} className='w-full border-none outline-none' id='confirm' placeholder="Confirm password" {...register("confirm", { required: true })} />
                                 <button onClick={() => setType(type === 'password' ? 'text' : 'password')}>
                                     {
-                                        type === 'password' ? <AiOutlineEyeInvisible /> : <AiOutlineEye />
+                                        type === 'password' ? <AiOutlineEye /> : <AiOutlineEyeInvisible />
                                     }
                                 </button>
                             </div>
