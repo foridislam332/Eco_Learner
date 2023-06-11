@@ -4,19 +4,18 @@ import React, { useState } from 'react';
 // react icons
 import { MdClose } from 'react-icons/md';
 import Swal from 'sweetalert2';
+import useAxiosSecure from '../../hooks/useAxiosSecure';
 
 const FeedbackModal = ({ id }) => {
     const [show, setShow] = useState(false);
+    const [axiosSecure] = useAxiosSecure();
 
     const handleSubmit = (e) => {
         e.preventDefault();
         const form = e.target;
         const feedback = form.feedback.value;
 
-        const api = axios.create({
-            baseURL: 'https://eco-learner-server.vercel.app',
-        });
-        api.patch(`/manageFeedback/${id}?feedback=${feedback}`)
+        axiosSecure.patch(`/manageFeedback/${id}?feedback=${feedback}`)
             .then(data => {
                 if (data.data.modifiedCount > 0) {
                     setShow(false);

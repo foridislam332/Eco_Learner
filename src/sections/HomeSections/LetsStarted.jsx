@@ -1,7 +1,7 @@
 import React from 'react';
 
 // images
-import letStartBg from '../assets/images/let-start-bg.jpg';
+import letStartBg from '../../assets/images/let-start-bg.jpg';
 
 const LetsStarted = () => {
     return (

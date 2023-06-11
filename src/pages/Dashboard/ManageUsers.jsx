@@ -1,21 +1,20 @@
 import React from 'react';
 import Loading from '../../components/Loading';
-import useUsers from '../../hooks/useUsers';
 import UserTableRow from '../../components/UserTableRow';
-import axios from 'axios';
 import Swal from 'sweetalert2';
+import useAxiosSecure from '../../hooks/useAxiosSecure';
+import { useQuery } from '@tanstack/react-query';
 
 const ManageUsers = () => {
-    const [users, , refetch] = useUsers();
-
-    // post api
-    const api = axios.create({
-        baseURL: 'https://eco-learner-server.vercel.app',
-    });
+    const [axiosSecure] = useAxiosSecure();
+    const { data: users = [], refetch } = useQuery(['users'], async () => {
+        const res = await axiosSecure.get('/users')
+        return res.data;
+    })
 
     const handleRole = (email, role) => {
         if (users.length) {
-            api.patch(`/users/${email}?role=${role}`)
+            axiosSecure.patch(`/users/${email}?role=${role}`)
                 .then(data => {
                     if (data.data.modifiedCount > 0) {
                         Swal.fire({

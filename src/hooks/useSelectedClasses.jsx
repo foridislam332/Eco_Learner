@@ -1,13 +1,15 @@
 import { useQuery } from '@tanstack/react-query';
 import useAuth from './useAuth';
+import useAxiosSecure from './useAxiosSecure';
 
 const useSelectedClasses = () => {
     const { user } = useAuth();
+    const [axiosSecure] = useAxiosSecure();
     const { data: selectedClasses = [], isLoading: loading, refetch } = useQuery({
         queryKey: ['selectedClasses'],
         queryFn: async () => {
-            const res = await fetch(`https://eco-learner-server.vercel.app/selectedClasses?email=${user?.email}`);
-            return res.json();
+            const res = await axiosSecure(`/selectedClasses?email=${user?.email}`);
+            return res.data;
         }
     })
 

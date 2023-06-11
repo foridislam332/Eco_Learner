@@ -8,9 +8,11 @@ import useAuth from '../hooks/useAuth';
 import { HiOutlineUsers } from 'react-icons/hi'
 import { BiBook } from 'react-icons/bi'
 import useCurrentUser from '../hooks/useCurrentUser';
+import useAxiosSecure from '../hooks/useAxiosSecure';
 
 const ClassesCard = ({ item }) => {
     const { user } = useAuth();
+    const [axiosSecure] = useAxiosSecure();
     const [selectedClasses, , refetch] = useSelectedClasses();
     const [currentUser] = useCurrentUser();
     const role = currentUser.role;
@@ -20,21 +22,18 @@ const ClassesCard = ({ item }) => {
 
     const isExists = selectedClasses.find(cls => cls.classId == item._id)
 
-    const api = axios.create({
-        baseURL: 'https://eco-learner-server.vercel.app',
-    });
     const handleSelectedClass = (item) => {
         const selectedClass = { email: user.email, classId: item._id, name: item.name, image: item.image, price: item.price, students: item.enrolledStudents };
 
         if (isExists) {
             return toast.warning("Class already Selected", {
-                position: "top-right",
+                position: "bottom-right",
                 autoClose: 3000,
                 theme: "light",
             });
         }
 
-        api.post('/selectedClasses', selectedClass)
+        axiosSecure.post('/selectedClasses', selectedClass)
             .then(data => {
                 if (data.data.insertedId) {
                     refetch();

@@ -3,19 +3,16 @@ import SelectedClassTableRow from '../../components/SelectedClassTableRow';
 import useAuth from '../../hooks/useAuth';
 import Loading from '../../components/Loading';
 import Swal from 'sweetalert2';
-import axios from 'axios';
+import useAxiosSecure from '../../hooks/useAxiosSecure';
 
 const SelectedClasses = () => {
     const [selectedClasses, , refetch] = useSelectedClasses();
     const { user } = useAuth();
+    const [axiosSecure] = useAxiosSecure();
 
     if (user) {
         refetch();
     }
-
-    const api = axios.create({
-        baseURL: 'https://eco-learner-server.vercel.app',
-    });
 
     const handleDelete = (id) => {
         Swal.fire({
@@ -28,7 +25,7 @@ const SelectedClasses = () => {
             confirmButtonText: 'Yes, delete it!'
         }).then((result) => {
             if (result.isConfirmed) {
-                api.delete(`/selectedClasses/${id}`)
+                axiosSecure.delete(`/selectedClasses/${id}`)
                     .then(data => {
                         if (data.data.deletedCount > 0) {
                             refetch();

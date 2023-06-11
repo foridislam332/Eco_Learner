@@ -1,20 +1,19 @@
 import { useForm } from 'react-hook-form';
 import Swal from 'sweetalert2';
-import axios from 'axios';
 import useAuth from '../../hooks/useAuth';
 import { useNavigate } from 'react-router-dom';
+import useAxiosSecure from '../../hooks/useAxiosSecure';
 
 const AddClass = () => {
     const { user } = useAuth();
     const navigate = useNavigate();
+    const [axiosSecure] = useAxiosSecure();
 
     const { register, handleSubmit, formState: { errors } } = useForm();
     const onSubmit = data => {
         const newClass = { ...data, status: 'pending', students: 0, feedback: '' }
-        const api = axios.create({
-            baseURL: 'https://eco-learner-server.vercel.app',
-        });
-        api.post('/classes', newClass)
+
+        axiosSecure.post('/classes', newClass)
             .then(data => {
                 if (data.data.insertedId) {
                     Swal.fire({

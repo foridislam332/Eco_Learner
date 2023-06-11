@@ -8,8 +8,6 @@ const AdminRoute = ({ children }) => {
     const [currentUser, isLoading] = useCurrentUser();
     const location = useLocation();
 
-    console.log('admin hitted')
-
     if (loading || isLoading) {
         return <Loading />
     }

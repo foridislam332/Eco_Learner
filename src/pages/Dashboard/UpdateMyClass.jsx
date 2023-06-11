@@ -1,20 +1,17 @@
-import axios from 'axios';
-import React from 'react';
 import { useForm } from 'react-hook-form';
 import { useLoaderData, useNavigate } from 'react-router-dom';
 import Loading from '../../components/Loading';
 import Swal from 'sweetalert2';
+import useAxiosSecure from '../../hooks/useAxiosSecure';
 
 const UpdateMyClass = () => {
     const classData = useLoaderData();
+    const [axiosSecure] = useAxiosSecure();
     const navigate = useNavigate();
 
     const { register, handleSubmit, formState: { errors } } = useForm();
     const onSubmit = data => {
-        const api = axios.create({
-            baseURL: 'https://eco-learner-server.vercel.app',
-        });
-        api.patch(`/classes/${classData._id}`, data)
+        axiosSecure.patch(`/classes/${classData._id}`, data)
             .then(data => {
                 if (data.data.modifiedCount > 0) {
                     Swal.fire({

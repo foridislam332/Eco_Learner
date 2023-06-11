@@ -6,7 +6,6 @@ import Loading from '../components/Loading';
 
 const InstructorClasses = () => {
     const instructorClasses = useLoaderData();
-
     return (
         <section>
             <Breadcrumbs title='Instructor Classes' />
@@ -19,7 +18,7 @@ const InstructorClasses = () => {
                     {
                         instructorClasses.length > 0 ? <div className='grid grid-cols-1 md:grid-cols-3 gap-10 mt-16'>
                             {
-                                instructorClasses.map((item) => <ClassesCard key={item.name} item={item} />)
+                                instructorClasses?.map((item) => <ClassesCard key={item.name} item={item} />)
                             }
                         </div> :
                             <div className='-mt-20'>

@@ -1,52 +1,43 @@
-import axios from 'axios';
 import React from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import useAuth from '../hooks/useAuth';
+import useAxiosSecure from '../hooks/useAxiosSecure';
+import { toast } from 'react-toastify';
 
 
 // image
 import googleImg from '../assets/images/google.png';
-import useUsers from '../hooks/useUsers';
 
 const SocialLogin = () => {
     const { googleSignIn } = useAuth();
-    const [users] = useUsers();
+    const [axiosSecure] = useAxiosSecure();
 
     // navigate
     const navigate = useNavigate();
     const location = useLocation();
     const from = location.state?.from?.pathname || '/';
 
-    // post api
-    const api = axios.create({
-        baseURL: 'https://eco-learner-server.vercel.app',
-    });
     const signInWithGoogle = () => {
         googleSignIn()
             .then((result) => {
                 const loggedUser = result.user;
                 const user = { name: loggedUser.displayName, email: loggedUser.email, role: 'student', photo: loggedUser.photoURL };
 
-                const isExists = users?.find(item => item.email === loggedUser.email);
-
-                if (!isExists) {
-                    api.post('/users', user)
-                        .then(data => {
-                            if (data.data.insertedId) {
-                                Swal.fire({
-                                    position: 'center',
-                                    icon: 'success',
-                                    title: 'User created successfully',
-                                    showConfirmButton: false,
-                                    timer: 2500
-                                });
-                                navigate(from, { replace: true })
-                            }
-                        })
-                } else {
-                    navigate(from, { replace: true })
-                }
+                axiosSecure.post('/users', user)
+                    .then(data => {
+                        if (data.data.insertedId) {
+                            Swal.fire({
+                                position: 'center',
+                                icon: 'success',
+                                title: 'User created successfully',
+                                showConfirmButton: false,
+                                timer: 2500
+                            });
+                            navigate(from, { replace: true })
+                        }
+                    })
+                navigate(from, { replace: true })
             })
             .catch(error => {
                 toast.error(error.message, {

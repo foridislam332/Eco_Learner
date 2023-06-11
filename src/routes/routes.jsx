@@ -34,7 +34,7 @@ const routes = createBrowserRouter([
             {
                 path: 'instructorClasses/:instructor',
                 element: <InstructorClasses />,
-                loader: ({ params }) => fetch(`https://eco-learner-server.vercel.app/instructors/${params.instructor}`)
+                loader: ({ params }) => fetch(`http://localhost:5000/instructors/${params.instructor}`)
             },
             {
                 path: 'classes',

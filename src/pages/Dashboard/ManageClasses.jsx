@@ -2,10 +2,11 @@ import Loading from '../../components/Loading';
 import ManageClassesCard from '../../components/ManageClassesCard';
 import useClasses from '../../hooks/useClasses';
 import Swal from 'sweetalert2';
-import axios from 'axios';
+import useAxiosSecure from '../../hooks/useAxiosSecure';
 
 const ManageClasses = () => {
     const [classes, , refetch] = useClasses();
+    const [axiosSecure] = useAxiosSecure();
 
     const sortedClasses = classes.sort((a, b) => {
         const statusOrder = { pending: 1, denied: 2, approved: 3 };
@@ -14,10 +15,7 @@ const ManageClasses = () => {
     });
 
     const handleStatus = (id, status) => {
-        const api = axios.create({
-            baseURL: 'https://eco-learner-server.vercel.app',
-        });
-        api.patch(`/manageClasses/${id}?status=${status}`)
+        axiosSecure.patch(`/manageClasses/${id}?status=${status}`)
             .then(data => {
                 if (data.data.modifiedCount > 0) {
                     refetch();
