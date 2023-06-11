@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 
 const SelectedClassTableRow = ({ item, index, handleDelete }) => {
     const { _id, image, name, price, seats } = item;
-
+    console.log(item)
     return (
         <tr className="border-b border-green even:bg-dark even:text-white">
             <td className="py-3 px-4 text-left text-blue">

@@ -79,7 +79,7 @@ const CheckoutForm = ({ classData }) => {
                 email: user?.email,
                 transactionId: transactionId,
                 price: price,
-                classId: classData._id,
+                classId: classData.classId,
                 date: new Date().toISOString(),
                 status: 'pending'
             }
