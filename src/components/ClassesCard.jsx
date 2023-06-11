@@ -9,18 +9,18 @@ import { HiOutlineUsers } from 'react-icons/hi'
 import { BiBook } from 'react-icons/bi'
 import useCurrentUser from '../hooks/useCurrentUser';
 import useAxiosSecure from '../hooks/useAxiosSecure';
+import { useState } from 'react';
 
 const ClassesCard = ({ item }) => {
+    const { name, instructor, image, des, price, seats, students } = item;
     const { user } = useAuth();
     const [axiosSecure] = useAxiosSecure();
-    const [selectedClasses, , refetch] = useSelectedClasses();
     const [currentUser] = useCurrentUser();
     const role = currentUser.role;
-    const { name, instructor, image, des, price, seats, students } = item;
 
     const { pathname } = useLocation();
-
-    const isExists = selectedClasses.find(cls => cls.classId == item._id)
+    const [selectedClasses, , refetch] = useSelectedClasses();
+    const isExists = selectedClasses?.find(cls => cls.classId == item._id)
 
     const handleSelectedClass = (item) => {
         const selectedClass = { email: user.email, classId: item._id, name: item.name, image: item.image, price: item.price, students: item.enrolledStudents };

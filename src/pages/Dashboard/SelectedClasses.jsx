@@ -1,14 +1,17 @@
-import useSelectedClasses from '../../hooks/useSelectedClasses';
 import SelectedClassTableRow from '../../components/SelectedClassTableRow';
 import useAuth from '../../hooks/useAuth';
 import Loading from '../../components/Loading';
 import Swal from 'sweetalert2';
 import useAxiosSecure from '../../hooks/useAxiosSecure';
+import { useQuery } from '@tanstack/react-query';
 
 const SelectedClasses = () => {
-    const [selectedClasses, , refetch] = useSelectedClasses();
     const { user } = useAuth();
     const [axiosSecure] = useAxiosSecure();
+    const { data: selectedClasses = [], refetch } = useQuery(['selectedClasses'], async () => {
+        const res = await axiosSecure.get(`/selectedClasses?email=${user?.email}`)
+        return res.data;
+    })
 
     if (user) {
         refetch();
