@@ -67,7 +67,7 @@ const routes = createBrowserRouter([
             {
                 path: 'payment/:id',
                 element: <Payment></Payment>,
-                loader: ({ params }) => fetch(`http://localhost:5000/selectedClasses/${params.id}`)
+                loader: ({ params }) => fetch(`https://eco-learner-server.vercel.app/selectedClasses/${params.id}`)
             },
             {
                 path: 'paymentHistory',

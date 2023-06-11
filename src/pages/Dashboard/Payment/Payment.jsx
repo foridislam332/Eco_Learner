@@ -13,7 +13,7 @@ const Payment = () => {
                 <p className='text-sm text-gray italic drop-shadow-xl font-light'>Dashboard / <span className='text-green'>Payment</span></p>
             </div>
 
-            <div>
+            <div className='bg-white shadow-xl w-[450px] p-8 rounded-lg border border-green mx-auto'>
                 <Elements stripe={stripePromise}>
                     <CheckoutForm classData={classData} />
                 </Elements>

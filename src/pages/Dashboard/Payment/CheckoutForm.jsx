@@ -123,7 +123,7 @@ const CheckoutForm = ({ classData }) => {
                     },
                 }}
             />
-            <button className='border border-green px-8 py-1 rounded-lg mt-4 hover:shadow-lg duration-300' type="submit" disabled={!stripe || !clientSecret || processing}>
+            <button className='border border-green px-8 py-1 rounded-lg mt-8 hover:shadow-lg duration-300' type="submit" disabled={!stripe || !clientSecret || processing}>
                 Pay
             </button>
         </form>
