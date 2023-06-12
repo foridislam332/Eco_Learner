@@ -18,7 +18,7 @@ const PopularInstructors = () => {
             </div>
 
             <div style={{ backgroundImage: `url(${instructorsBg})` }} className='bg-fixed bg-cover bg-center bg-no-repeat'>
-                <div className='bg-black bg-opacity-40 pt-16 mt-16 pb-16 md:pb-20'>
+                <div className='bg-black bg-opacity-50 pt-16 mt-16 pb-16 md:pb-20'>
                     {/* classes card */}
                     <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
                         <div className='grid grid-cols-1 md:grid-cols-3 gap-10'>

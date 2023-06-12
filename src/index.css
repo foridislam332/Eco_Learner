@@ -60,3 +60,19 @@ body {
     color: #fff;
     background: #afaeae;
 }
+
+/* slider pagination styles */
+.swiper-pagination {
+    bottom: 40px !important;
+}
+
+.swiper-pagination-bullet {
+    height: 18px !important;
+    width: 18px !important;
+    background-color: #ffbd0a !important;
+    opacity: 1 !important;
+}
+
+.swiper-pagination-bullet-active {
+    background-color: #fff !important;
+}
