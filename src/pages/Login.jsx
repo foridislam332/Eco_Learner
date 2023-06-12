@@ -56,22 +56,21 @@ const Login = () => {
                         </Player>
                     </div>
 
-                    <div className='p-5 md:p-16 rounded-lg shadow-custom max-w-xl mx-auto'>
-                        <h1 className='text-3xl md:text-5xl font-semibold text-dark'>Welcome Back!</h1>
+                    <div className='p-5 md:p-16 rounded-lg shadow-2xl dark:bg-dark max-w-xl mx-auto'>
+                        <h1 className='text-3xl md:text-5xl font-semibold text-dark dark:text-green'>Welcome Back!</h1>
                         <h2 className='text-lg text-gray mb-10'>Login to continue</h2>
-
 
                         <form onSubmit={handleSubmit(onSubmit)}>
                             <div className='flex items-center border border-green rounded-lg gap-3 p-3'>
                                 <label htmlFor="email"> <MdAlternateEmail className='text-green text-2xl' /></label>
-                                <input className='w-full border-none outline-none' id='email' placeholder="Enter email" {...register("email", { required: true })} />
+                                <input className='w-full border-none outline-none dark:text-white dark:bg-dark' id='email' placeholder="Enter email" {...register("email", { required: true })} />
                             </div>
                             {errors.email && <span className='text-sm text-red ml-1'>Email is required</span>}
 
                             <div className='flex items-center border border-green rounded-lg gap-3 p-3 mt-5'>
                                 <label htmlFor="password"> <MdLockOutline className='text-green text-2xl' /></label>
-                                <input type={type} className='w-full border-none outline-none' id='password' placeholder="password" {...register("password", { required: true })} />
-                                <button onClick={() => setType(type === 'password' ? 'text' : 'password')}>
+                                <input type={type} className='w-full border-none outline-none dark:text-white dark:bg-dark' id='password' placeholder="password" {...register("password", { required: true })} />
+                                <button className='dark:text-white' onClick={() => setType(type === 'password' ? 'text' : 'password')}>
                                     {
                                         type === 'password' ? <AiOutlineEye /> : <AiOutlineEyeInvisible />
                                     }

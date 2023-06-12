@@ -2,6 +2,7 @@ import ActiveLink from './ActiveLink';
 import Profile from './Profile';
 import useAuth from '../../../hooks/useAuth';
 import useCurrentUser from '../../../hooks/useCurrentUser';
+import ModeChangeButton from './ModeChangeButton';
 
 const NavItem = () => {
     const { user } = useAuth();
@@ -29,6 +30,7 @@ const NavItem = () => {
                     user?.email ? <Profile /> : <ActiveLink to='/login'>Login</ActiveLink>
                 }
             </li>
+            <ModeChangeButton />
         </>
     );
 };

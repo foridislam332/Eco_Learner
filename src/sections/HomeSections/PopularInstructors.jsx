@@ -9,7 +9,7 @@ import instructorsBg from '../../assets/images/instructors-bg.jpg';
 const PopularInstructors = () => {
     const [classes] = useClasses();
     return (
-        <section>
+        <section className='dark:bg-dark'>
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 md:pt-20">
                 {/* section title */}
                 <SectionTitle>

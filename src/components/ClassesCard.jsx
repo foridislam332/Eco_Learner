@@ -1,8 +1,8 @@
 import { Link, useLocation } from 'react-router-dom';
-import axios from 'axios';
 import { toast } from 'react-toastify';
 import useSelectedClasses from '../hooks/useSelectedClasses';
 import useAuth from '../hooks/useAuth';
+import { motion } from 'framer-motion';
 
 // react icons
 import { HiOutlineUsers } from 'react-icons/hi'
@@ -10,7 +10,7 @@ import { BiBook } from 'react-icons/bi'
 import useCurrentUser from '../hooks/useCurrentUser';
 import useAxiosSecure from '../hooks/useAxiosSecure';
 
-const ClassesCard = ({ item }) => {
+const ClassesCard = ({ item, variants }) => {
     const { name, instructor, image, des, price, seats, students } = item;
     const { user } = useAuth();
     const [axiosSecure] = useAxiosSecure();
@@ -45,16 +45,18 @@ const ClassesCard = ({ item }) => {
             })
     }
     return (
-        <div className={`${seats === 0 ? 'bg-red' : 'bg-white'} hover:shadow-xl rounded-md flex flex-col justify-between hover:-translate-y-4 duration-300 ease-in-out`}>
+        <motion.div
+            variants={variants}
+            className={`${seats === 0 ? 'bg-red dark:bg-gray' : 'bg-white dark:bg-dark'} hover:shadow-xl rounded-md flex flex-col justify-between hover:-translate-y-4 duration-300 ease-in-out`}>
             <img className='rounded-md' src={image} alt={name} />
 
             <div className={`flex-1 px-5 pt-5`}>
-                <h1 className='text-xl text-dark drop-shadow-lg font-semibold'>{name}</h1>
+                <h1 className={`text-xl drop-shadow-lg font-semibold ${seats === 0 ? 'text-dark dark:text-dark' : 'text-dark dark:text-green'}`}>{name}</h1>
 
-                <p className='italic text-sm text-dark'><span className='text-xs text-gray'>by</span> {instructor}</p>
+                <p className={`italic text-sm ${seats === 0 ? 'dark:text-dark' : 'text-gray dark:text-gray'}`}><span className='text-xs'>by</span> {instructor}</p>
             </div>
 
-            <div className={`px-5 pb-5 ${seats === 0 ? 'text-dark' : 'text-gray'}`}>
+            <div className={`px-5 pb-5 ${seats === 0 ? 'text-dark' : 'text-gray dark:text-white'}`}>
                 <p className='mt-3 text-sm'>{des?.slice(0, 65)} ...</p>
 
                 <div className='flex items-center justify-between mt-2'>
@@ -81,7 +83,7 @@ const ClassesCard = ({ item }) => {
                     </div>
                 }
             </div>
-        </div>
+        </motion.div>
     );
 };
 

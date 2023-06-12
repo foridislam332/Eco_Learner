@@ -11,7 +11,7 @@ import { SlLocationPin } from 'react-icons/sl';
 
 const Footer = () => {
     return (
-        <footer>
+        <footer className="dark:bg-black">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-10 lg:gap-20">
 
@@ -71,7 +71,7 @@ const Footer = () => {
                         <p className="text-gray mt-8">Subscribe to our newsletter for latest updates about our company</p>
 
                         <div className="border border-green rounded-3xl py-3 px-4 flex items-center my-4">
-                            <input className="border-none outline-none w-full" type="text" placeholder="Email address" />
+                            <input className="border-none outline-none w-full dark:bg-black" type="text" placeholder="Email address" />
                             <button><FaRegPaperPlane className="text-green text-xl" /></button>
                         </div>
 

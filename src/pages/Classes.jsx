@@ -15,7 +15,7 @@ const Classes = () => {
                 <title>Eco Learner | Classes</title>
             </Helmet>
             <Breadcrumbs title='Classes' />
-            <div className='bg-[#f7f7f7] bg-fixed'>
+            <div className='bg-[#f7f7f7] dark:bg-black bg-fixed'>
                 <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-20">
                     <SectionTitle>Our Classes</SectionTitle>
 

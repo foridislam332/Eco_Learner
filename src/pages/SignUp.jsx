@@ -115,27 +115,27 @@ const SignUp = () => {
                         </Player>
                     </div>
 
-                    <div className='p-5 md:p-16 rounded-lg shadow-custom max-w-xl mx-auto'>
-                        <h1 className='text-3xl md:text-5xl font-semibold text-dark'>Welcome Back!</h1>
+                    <div className='p-5 md:p-16 rounded-lg shadow-2xl max-w-xl mx-auto dark:bg-dark'>
+                        <h1 className='text-3xl md:text-5xl font-semibold text-dark dark:text-green'>Welcome Back!</h1>
                         <h2 className='text-lg text-gray mb-10'>Sign Up to continue</h2>
 
                         <form onSubmit={handleSubmit(onSubmit)}>
                             <div className='flex items-center border border-green rounded-lg gap-3 p-3'>
                                 <label htmlFor="name"> <BiUserPin className='text-green text-2xl' /></label>
-                                <input className='w-full border-none outline-none' id='name' placeholder="Enter full name" {...register("name", { required: true })} />
+                                <input className='w-full border-none outline-none dark:text-white dark:bg-dark' id='name' placeholder="Enter full name" {...register("name", { required: true })} />
                             </div>
                             {errors.name && <span className='text-sm text-red ml-1'>Name is required</span>}
 
                             <div className='flex items-center border border-green rounded-lg gap-3 p-3 mt-3'>
                                 <label htmlFor="email"> <MdAlternateEmail className='text-green text-2xl' /></label>
-                                <input type='email' className='w-full border-none outline-none' id='email' placeholder="Enter your email" {...register("email", { required: true })} />
+                                <input type='email' className='w-full border-none outline-none dark:text-white dark:bg-dark' id='email' placeholder="Enter your email" {...register("email", { required: true })} />
                             </div>
                             {errors.email && <span className='text-sm text-red ml-1'>Email is required</span>}
 
                             <div className='flex items-center border border-green rounded-lg gap-3 p-3 mt-3'>
                                 <label htmlFor="password"> <MdLockOutline className='text-green text-2xl' /></label>
-                                <input type={type} className='w-full border-none outline-none' id='password' placeholder="password" {...register("password", { required: true })} />
-                                <button onClick={() => setType(type === 'password' ? 'text' : 'password')}>
+                                <input type={type} className='w-full border-none outline-none dark:text-white dark:bg-dark' id='password' placeholder="password" {...register("password", { required: true })} />
+                                <button className='dark:text-white' onClick={() => setType(type === 'password' ? 'text' : 'password')}>
                                     {
                                         type === 'password' ? <AiOutlineEye /> : <AiOutlineEyeInvisible />
                                     }
@@ -145,8 +145,8 @@ const SignUp = () => {
 
                             <div className='flex items-center border border-green rounded-lg gap-3 p-3 mt-3'>
                                 <label htmlFor="confirm"> <BsShieldCheck className='text-green text-2xl' /></label>
-                                <input type={type} className='w-full border-none outline-none' id='confirm' placeholder="Confirm password" {...register("confirm", { required: true })} />
-                                <button onClick={() => setType(type === 'password' ? 'text' : 'password')}>
+                                <input type={type} className='w-full border-none outline-none dark:text-white dark:bg-dark' id='confirm' placeholder="Confirm password" {...register("confirm", { required: true })} />
+                                <button className='dark:text-white' onClick={() => setType(type === 'password' ? 'text' : 'password')}>
                                     {
                                         type === 'password' ? <AiOutlineEye /> : <AiOutlineEyeInvisible />
                                     }
@@ -156,7 +156,7 @@ const SignUp = () => {
 
                             <div className='flex items-center border border-green rounded-lg gap-3 p-3 mt-3'>
                                 <label htmlFor="photo"> <HiOutlinePhotograph className='text-green text-2xl' /></label>
-                                <input className='w-full border-none outline-none' id='photo' placeholder="Photo URL" {...register("photo")} />
+                                <input className='w-full border-none outline-none dark:text-white dark:bg-dark' id='photo' placeholder="Photo URL" {...register("photo")} />
                             </div>
 
                             <button className='btn_primary w-full mt-7 border' type='submit'>Sign Up</button>
