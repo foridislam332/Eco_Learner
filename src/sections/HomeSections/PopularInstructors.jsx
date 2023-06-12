@@ -5,6 +5,7 @@ import InstructorCard from '../../components/InstructorCard';
 
 // images
 import instructorsBg from '../../assets/images/instructors-bg.jpg';
+import { Zoom } from 'react-awesome-reveal';
 
 const PopularInstructors = () => {
     const [classes] = useClasses();
@@ -22,9 +23,11 @@ const PopularInstructors = () => {
                     {/* classes card */}
                     <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
                         <div className='grid grid-cols-1 md:grid-cols-3 gap-10'>
-                            {
-                                classes.slice(0, 6).sort((a, b) => b.enrolledStudents - a.enrolledStudents).map((item, index) => <InstructorCard key={index} item={item} classes={classes} index={index} />)
-                            }
+                            <Zoom cascade damping={0.1} triggerOnce={true}>
+                                {
+                                    classes.slice(0, 6).sort((a, b) => b.enrolledStudents - a.enrolledStudents).map((item, index) => <InstructorCard key={index} item={item} classes={classes} index={index} />)
+                                }
+                            </Zoom>
                         </div>
                     </div>
                 </div>

@@ -4,6 +4,7 @@ import useClasses from '../../hooks/useClasses';
 import Swal from 'sweetalert2';
 import useAxiosSecure from '../../hooks/useAxiosSecure';
 import { Helmet } from 'react-helmet';
+import { Slide } from 'react-awesome-reveal';
 
 const ManageClasses = () => {
     const [classes, , refetch] = useClasses();
@@ -32,25 +33,29 @@ const ManageClasses = () => {
     }
 
     return (
-        <section className='shadow-xl shadow-indigo-500/20 my-5 p-5 rounded-lg bg-white'>
-            <Helmet>
-                <title>Eco Learner | Dashboard | Manage Classes</title>
-            </Helmet>
-            <div className='mb-8'>
-                <h1 className='text-3xl text-dark font-medium drop-shadow-xl'>Manage Classes</h1>
-                <p className='text-sm text-gray italic drop-shadow-xl font-light'>Dashboard / <span className='text-green'>Manage Classes</span></p>
-            </div>
+        <section className='shadow-xl shadow-indigo-500/20 my-2 md:my-5 p-5 rounded-lg bg-white overflow-hidden'>
+            <Slide cascade damping={0.1} direction="right" triggerOnce={true}>
+                <Helmet>
+                    <title>Eco Learner | Dashboard | Manage Classes</title>
+                </Helmet>
+                <div className='mb-8'>
+                    <h1 className='text-3xl text-dark font-medium drop-shadow-xl'>Manage Classes</h1>
+                    <p className='text-sm text-gray italic drop-shadow-xl font-light'>Dashboard / <span className='text-green'>Manage Classes</span></p>
+                </div>
+            </Slide>
 
             {/* manage classes card */}
             {
                 sortedClasses.length === 0 ? <div className='-mt-20'><Loading /></div> : <div className='grid grid-cols-1 gap-6'>
-                    {
-                        sortedClasses.map(item => <ManageClassesCard
-                            key={item._id}
-                            item={item}
-                            handleStatus={handleStatus}
-                        />)
-                    }
+                    <Slide cascade damping={0.1} direction="right" triggerOnce={true}>
+                        {
+                            sortedClasses.map(item => <ManageClassesCard
+                                key={item._id}
+                                item={item}
+                                handleStatus={handleStatus}
+                            />)
+                        }
+                    </Slide>
                 </div>
             }
         </section>

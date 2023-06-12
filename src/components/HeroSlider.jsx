@@ -1,3 +1,4 @@
+import { Slide, Zoom, Fade } from "react-awesome-reveal";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 // Import Swiper styles
@@ -31,14 +32,15 @@ const HeroSlider = () => {
                 <SwiperSlide>
                     <div style={{ backgroundImage: `url(${HeroBg})` }} className='bg-cover bg-center bg-no-repeat'>
                         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-
                             {/* hero banner content */}
                             <div className='pt-40 pb-32 md:pt-48'>
-                                <h1 className='text-3xl md:text-5xl text-white font-semibold drop-shadow-xl'><span className='text-dark font-bold mb-3 block'>Eco Learner</span> <span className='mb-2 block'>Nature Exploration</span> e-Learning Courses</h1>
+                                <Slide cascade damping={0.1}>
+                                    <h1 className='text-3xl md:text-5xl text-white font-semibold drop-shadow-xl'><span className='text-dark font-bold mb-3 block'>Eco Learner</span> <span className='mb-2 block'>Nature Exploration</span> e-Learning Courses</h1>
 
-                                <p className='md:w-[600px] mt-5 text-white md:text-[#3d3b3b] bg-black md:bg-transparent bg-opacity-50 p-2 md:p-0 drop-shadow-xl'>A Summer Camp Nature Exploration Learning School combines the elements of a traditional summer camp with a focus on nature exploration and experiential learning.</p>
+                                    <p className='md:w-[600px] mt-5 text-white md:text-[#3d3b3b] bg-black md:bg-transparent bg-opacity-50 p-2 md:p-0 drop-shadow-xl'>A Summer Camp Nature Exploration Learning School combines the elements of a traditional summer camp with a focus on nature exploration and experiential learning.</p>
 
-                                <Link to='/classes' className='mt-16 btn_primary inline-block'>See Courses</Link>
+                                    <Link to='/classes' className='mt-16 btn_primary inline-block'>See Courses</Link>
+                                </Slide>
                             </div>
                         </div>
                     </div>
@@ -49,11 +51,13 @@ const HeroSlider = () => {
 
                             {/* hero banner content */}
                             <div className='pt-40 pb-32 md:pt-48 text-right'>
-                                <h1 className='text-3xl md:text-5xl text-white font-semibold drop-shadow-xl'><span className='text-dark font-bold mb-3 block'>Eco Learner</span> <span className='mb-2 block'>A Unique Blend of </span> Fun and Education</h1>
+                                <Fade cascade damping={0.1}>
+                                    <h1 className='text-3xl md:text-5xl text-white font-semibold drop-shadow-xl'><span className='text-dark font-bold mb-3 block'>Eco Learner</span> <span className='mb-2 block'>A Unique Blend of </span> Fun and Education</h1>
 
-                                <p className='md:w-[600px] mt-5 text-white md:text-[#3d3b3b] bg-black md:bg-transparent bg-opacity-50 p-2 md:p-0 drop-shadow-xl'>Our e-learning courses offer a unique blend of fun and education, creating a dynamic learning experience for your child. Through engaging multimedia content, interactive</p>
+                                    <p className='md:w-[600px] mt-5 text-white md:text-[#3d3b3b] bg-black md:bg-transparent bg-opacity-50 p-2 md:p-0 drop-shadow-xl'>Our e-learning courses offer a unique blend of fun and education, creating a dynamic learning experience for your child. Through engaging multimedia content, interactive</p>
 
-                                <Link to='/classes' className='mt-16 btn_primary inline-block'>See Courses</Link>
+                                    <Link to='/classes' className='mt-16 btn_primary inline-block'>See Courses</Link>
+                                </Fade>
                             </div>
                         </div>
                     </div>
@@ -64,11 +68,13 @@ const HeroSlider = () => {
 
                             {/* hero banner content */}
                             <div className='pt-40 pb-32 md:pt-48 text-right'>
-                                <h1 className='text-3xl md:text-5xl text-white font-semibold drop-shadow-xl'><span className='text-dark font-bold mb-3 block'>Eco Learner</span> <span className='mb-2 block'>Explore the World </span> Nature Photography</h1>
+                                <Zoom cascade damping={0.1}>
+                                    <h1 className='text-3xl md:text-5xl text-white font-semibold drop-shadow-xl'><span className='text-dark font-bold mb-3 block'>Eco Learner</span> <span className='mb-2 block'>Explore the World </span> Nature Photography</h1>
 
-                                <p className='md:w-[600px] mt-5 text-white md:text-[#3d3b3b] bg-black md:bg-transparent bg-opacity-50 p-2 md:p-0 drop-shadow-xl'>Our nature photography courses are taught by seasoned photographers who have honed their craft through years of experience. They possess a deep understanding of composition</p>
+                                    <p className='md:w-[600px] mt-5 text-white md:text-[#3d3b3b] bg-black md:bg-transparent bg-opacity-50 p-2 md:p-0 drop-shadow-xl'>Our nature photography courses are taught by seasoned photographers who have honed their craft through years of experience. They possess a deep understanding of composition</p>
 
-                                <Link to='/classes' className='mt-16 btn_primary inline-block'>See Courses</Link>
+                                    <Link to='/classes' className='mt-16 btn_primary inline-block'>See Courses</Link>
+                                </Zoom>
                             </div>
                         </div>
                     </div>

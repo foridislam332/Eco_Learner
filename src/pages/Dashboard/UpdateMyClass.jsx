@@ -4,6 +4,7 @@ import Loading from '../../components/Loading';
 import Swal from 'sweetalert2';
 import useAxiosSecure from '../../hooks/useAxiosSecure';
 import { Helmet } from 'react-helmet';
+import { Slide } from 'react-awesome-reveal';
 
 const UpdateMyClass = () => {
     const classData = useLoaderData();
@@ -27,77 +28,79 @@ const UpdateMyClass = () => {
             })
     };
     return (
-        <section className='shadow-xl shadow-indigo-500/20 my-5 p-5 rounded-lg bg-white'>
-            <Helmet>
-                <title>Eco Learner | Dashboard | Update Class</title>
-            </Helmet>
-            <div className='mb-8'>
-                <h1 className='text-3xl text-dark font-medium drop-shadow-xl'>Update Class</h1>
-                <p className='text-sm text-gray italic drop-shadow-xl font-light'>Dashboard / <span className='text-green'>Update Class</span></p>
-            </div>
+        <section className='shadow-xl shadow-indigo-500/20 my-2 md:my-5 p-5 rounded-lg bg-white overflow-hidden'>
+            <Slide cascade damping={0.1} direction="right" triggerOnce={true}>
+                <Helmet>
+                    <title>Eco Learner | Dashboard | Update Class</title>
+                </Helmet>
+                <div className='mb-8'>
+                    <h1 className='text-3xl text-dark font-medium drop-shadow-xl'>Update Class</h1>
+                    <p className='text-sm text-gray italic drop-shadow-xl font-light'>Dashboard / <span className='text-green'>Update Class</span></p>
+                </div>
 
-            {/* Selected Classes table */}
+                {/* Selected Classes table */}
 
-            {
-                !classData.email ? <Loading /> : <form onSubmit={handleSubmit(onSubmit)}>
-                    <div className='flex flex-col lg:flex-row items-start gap-4'>
-                        <div className='w-full lg:w-2/3'>
-                            <label className='text-gray' htmlFor="name">Class Name:</label>
-                            <input id='name' defaultValue={classData.name} {...register("name", { required: true })} className='w-full border border-green py-2 px-3 rounded-md outline-none' />
-                            {errors.name && <span className='text-red'>This field is required</span>}
+                {
+                    !classData.email ? <Loading /> : <form onSubmit={handleSubmit(onSubmit)}>
+                        <div className='flex flex-col lg:flex-row items-start gap-4'>
+                            <div className='w-full lg:w-2/3'>
+                                <label className='text-gray' htmlFor="name">Class Name:</label>
+                                <input id='name' defaultValue={classData.name} {...register("name", { required: true })} className='w-full border border-green py-2 px-3 rounded-md outline-none' />
+                                {errors.name && <span className='text-red'>This field is required</span>}
+                            </div>
+
+                            <div className='w-full flex flex-col md:flex-row gap-4'>
+                                <div className='w-full'>
+                                    <label className='text-gray' htmlFor="instructor">Instructor Name:</label>
+                                    <input id='instructor' defaultValue={classData.instructor} {...register("instructor", { required: true })} className='w-full border border-green py-2 px-3 rounded-md outline-none' />
+                                    {errors.instructor && <span className='text-red'>This field is required</span>}
+                                </div>
+
+                                <div className='w-full'>
+                                    <label className='text-gray' htmlFor="email">Email:</label>
+                                    <input type='email' id='email' disabled defaultValue={classData.email} {...register("email")} className='w-full border border-green py-2 px-3 rounded-md outline-none' />
+                                </div>
+                            </div>
                         </div>
 
-                        <div className='w-full flex flex-col md:flex-row gap-4'>
+                        <div className='w-full flex flex-col md:flex-row gap-4 mt-4'>
                             <div className='w-full'>
-                                <label className='text-gray' htmlFor="instructor">Instructor Name:</label>
-                                <input id='instructor' defaultValue={classData.instructor} {...register("instructor", { required: true })} className='w-full border border-green py-2 px-3 rounded-md outline-none' />
-                                {errors.instructor && <span className='text-red'>This field is required</span>}
+                                <label className='text-gray' htmlFor="image">Class Image:</label>
+                                <input id='image' defaultValue={classData.image} {...register("image", { required: true })} className='w-full border border-green py-2 px-3 rounded-md outline-none' />
+                                {errors.image && <span className='text-red'>This field is required</span>}
                             </div>
 
                             <div className='w-full'>
-                                <label className='text-gray' htmlFor="email">Email:</label>
-                                <input type='email' id='email' disabled defaultValue={classData.email} {...register("email")} className='w-full border border-green py-2 px-3 rounded-md outline-none' />
+                                <label className='text-gray' htmlFor="instructorImage">Instructor Image:</label>
+                                <input id='instructorImage' defaultValue={classData.instructorImage} {...register("instructorImage", { required: true })} className='w-full border border-green py-2 px-3 rounded-md outline-none' />
+                                {errors.instructorImage && <span className='text-red'>This field is required</span>}
                             </div>
                         </div>
-                    </div>
 
-                    <div className='w-full flex flex-col md:flex-row gap-4 mt-4'>
-                        <div className='w-full'>
-                            <label className='text-gray' htmlFor="image">Class Image:</label>
-                            <input id='image' defaultValue={classData.image} {...register("image", { required: true })} className='w-full border border-green py-2 px-3 rounded-md outline-none' />
-                            {errors.image && <span className='text-red'>This field is required</span>}
+                        <div className='w-full mt-4'>
+                            <label className='text-gray' htmlFor="des">Description:</label>
+                            <textarea rows={4} id='des' defaultValue={classData.des} {...register("des", { required: true })} className='w-full border border-green py-2 px-3 rounded-md outline-none' />
+                            {errors.des && <span className='text-red'>This field is required</span>}
                         </div>
 
-                        <div className='w-full'>
-                            <label className='text-gray' htmlFor="instructorImage">Instructor Image:</label>
-                            <input id='instructorImage' defaultValue={classData.instructorImage} {...register("instructorImage", { required: true })} className='w-full border border-green py-2 px-3 rounded-md outline-none' />
-                            {errors.instructorImage && <span className='text-red'>This field is required</span>}
+                        <div className='mt-4 flex flex-col md:flex-row items-end gap-4'>
+                            <div className='w-full'>
+                                <label className='text-gray' htmlFor="price">Price:</label>
+                                <input id='price' defaultValue={classData.price} {...register("price", { required: true })} className='w-full border border-green py-2 px-3 rounded-md outline-none' />
+                                {errors.price && <span className='text-red'>This field is required</span>}
+                            </div>
+                            <div className='w-full'>
+                                <label className='text-gray' htmlFor="seats">Available seats:</label>
+                                <input id='seats' defaultValue={classData.seats} {...register("seats", { required: true })} className='w-full border border-green py-2 px-3 rounded-md outline-none' />
+                                {errors.seats && <span className='text-red'>This field is required</span>}
+                            </div>
+                            <div className='w-full'>
+                                <button className='overflow-hidden btn_primary w-full border border-green' >Update Class</button>
+                            </div>
                         </div>
-                    </div>
-
-                    <div className='w-full mt-4'>
-                        <label className='text-gray' htmlFor="des">Description:</label>
-                        <textarea rows={4} id='des' defaultValue={classData.des} {...register("des", { required: true })} className='w-full border border-green py-2 px-3 rounded-md outline-none' />
-                        {errors.des && <span className='text-red'>This field is required</span>}
-                    </div>
-
-                    <div className='mt-4 flex flex-col md:flex-row items-end gap-4'>
-                        <div className='w-full'>
-                            <label className='text-gray' htmlFor="price">Price:</label>
-                            <input id='price' defaultValue={classData.price} {...register("price", { required: true })} className='w-full border border-green py-2 px-3 rounded-md outline-none' />
-                            {errors.price && <span className='text-red'>This field is required</span>}
-                        </div>
-                        <div className='w-full'>
-                            <label className='text-gray' htmlFor="seats">Available seats:</label>
-                            <input id='seats' defaultValue={classData.seats} {...register("seats", { required: true })} className='w-full border border-green py-2 px-3 rounded-md outline-none' />
-                            {errors.seats && <span className='text-red'>This field is required</span>}
-                        </div>
-                        <div className='w-full'>
-                            <button className='overflow-hidden btn_primary w-full border border-green' >Update Class</button>
-                        </div>
-                    </div>
-                </form>
-            }
+                    </form>
+                }
+            </Slide>
         </section>
     );
 };

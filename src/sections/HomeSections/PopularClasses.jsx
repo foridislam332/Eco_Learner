@@ -1,27 +1,13 @@
-import { motion } from 'framer-motion';
 import SectionTitle from '../../components/Shared/SectionTitle';
 import ClassesCard from '../../components/ClassesCard';
 import useClasses from '../../hooks/useClasses';
+import { Slide } from 'react-awesome-reveal';
 
 const PopularClasses = () => {
     const [classes] = useClasses();
-    const variants = {
-        visible: {
-            y: 0,
-            transition: {
-                when: "beforeChildren",
-                staggerChildren: 0.3,
-            },
-        },
-        hidden: {
-            y: 300,
-            transition: {
-                when: "afterChildren",
-            },
-        },
-    }
+
     return (
-        <section className='py-16 md:py-20 bg-[#f7f7f7] dark:bg-black bg-fixed'>
+        <section className='py-16 md:py-20 bg-[#f7f7f7] dark:bg-black bg-fixed overflow-hidden'>
             {/* section title */}
             <SectionTitle>
                 Popular Classes
@@ -29,15 +15,14 @@ const PopularClasses = () => {
 
             {/* classes card */}
             <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 mt-16">
-                <motion.div
-                    initial="hidden"
-                    whileInView="visible"
-                    viewport={{ once: true }}
+                <div
                     className='grid grid-cols-1 md:grid-cols-3 gap-10'>
-                    {
-                        classes.slice(0, 6).sort((a, b) => b.enrolledStudents - a.enrolledStudents).map(item => <ClassesCard key={item.name} item={item} variants={variants} />)
-                    }
-                </motion.div>
+                    <Slide cascade damping={0.1} direction="up" triggerOnce={true}>
+                        {
+                            classes.slice(0, 6).sort((a, b) => b.enrolledStudents - a.enrolledStudents).map(item => <ClassesCard key={item.name} item={item} />)
+                        }
+                    </Slide>
+                </div>
             </div>
         </section>
     );

@@ -14,6 +14,7 @@ import { VscSettings } from 'react-icons/vsc';
 
 // logo 
 import Logo from '../../assets/images/logo.png';
+import { Slide } from 'react-awesome-reveal';
 
 const DashboardDrawer = () => {
     const { logOut } = useAuth();
@@ -23,55 +24,57 @@ const DashboardDrawer = () => {
     const role = currentUser.role;
     return (
         <div className='w-20 lg:w-80 sticky top-0 h-screen bg-white rounded-lg flex flex-col justify-between shadow-xl shadow-indigo-500/20'>
-            <nav className='hidden lg:block'>
-                <div className='text-center py-4 mx-auto flex items-center justify-center'>
-                    <NavLink to='/'><img className="w-44" src={Logo} alt="eco learner logo" /></NavLink>
-                </div>
-                <div className='border-t border-orange mx-4'></div>
+            <nav className='hidden lg:block overflow-hidden'>
+                <Slide cascade damping={0.1} triggerOnce={true}>
+                    <div className='text-center py-4 mx-auto flex items-center justify-center'>
+                        <NavLink to='/'><img className="w-44" src={Logo} alt="eco learner logo" /></NavLink>
+                    </div>
+                    <div className='border-t border-orange mx-4'></div>
 
-                {/* students */}
-                {
-                    role === 'student' && <ul className='px-6 flex flex-col gap-5 mt-5 items-start'>
-                        <li className='w-full'>
-                            <NavLink to='/dashboard/studentHome' className={`flex items-center gap-2 hover:bg-green hover:text-white p-2 rounded-lg duration-300 ease-in-out ${pathname === '/dashboard/studentHome' ? 'bg-green text-white' : ''}`}><RiBookMarkLine size={25} /> <span>Selected Classes</span></NavLink>
-                        </li>
-                        <li className='w-full'>
-                            <NavLink to='/dashboard/enrolledClasses' className={`flex items-center gap-2 hover:bg-green hover:text-white p-2 rounded-lg duration-300 ease-in-out ${pathname === '/dashboard/enrolledClasses' ? 'bg-green text-white' : ''}`}><MdOutlineBookmarkAdded size={25} /> <span>Enrolled Classes</span></NavLink>
-                        </li>
-                        <li className='w-full'>
-                            <NavLink to='/dashboard/paymentHistory' className={`flex items-center gap-2 hover:bg-green hover:text-white p-2 rounded-lg duration-300 ease-in-out ${pathname === '/dashboard/paymentHistory' ? 'bg-green text-white' : ''}`}><MdOutlineHistory size={25} /> <span>Payment History</span></NavLink>
-                        </li>
-                    </ul>
-                }
+                    {/* students */}
+                    {
+                        role === 'student' && <ul className='px-6 flex flex-col gap-5 mt-5 items-start'>
+                            <li className='w-full'>
+                                <NavLink to='/dashboard/studentHome' className={`flex items-center gap-2 hover:bg-green hover:text-white p-2 rounded-lg duration-300 ease-in-out ${pathname === '/dashboard/studentHome' ? 'bg-green text-white' : ''}`}><RiBookMarkLine size={25} /> <span>Selected Classes</span></NavLink>
+                            </li>
+                            <li className='w-full'>
+                                <NavLink to='/dashboard/enrolledClasses' className={`flex items-center gap-2 hover:bg-green hover:text-white p-2 rounded-lg duration-300 ease-in-out ${pathname === '/dashboard/enrolledClasses' ? 'bg-green text-white' : ''}`}><MdOutlineBookmarkAdded size={25} /> <span>Enrolled Classes</span></NavLink>
+                            </li>
+                            <li className='w-full'>
+                                <NavLink to='/dashboard/paymentHistory' className={`flex items-center gap-2 hover:bg-green hover:text-white p-2 rounded-lg duration-300 ease-in-out ${pathname === '/dashboard/paymentHistory' ? 'bg-green text-white' : ''}`}><MdOutlineHistory size={25} /> <span>Payment History</span></NavLink>
+                            </li>
+                        </ul>
+                    }
 
-                {/* Instructor */}
-                {
-                    role === 'instructor' && <ul className='px-6 flex flex-col gap-5 mt-5 items-start'>
-                        <li className='w-full'>
-                            <NavLink to='/dashboard/myClasses' className={`flex items-center gap-2 hover:bg-green hover:text-white p-2 rounded-lg duration-300 ease-in-out ${pathname === '/dashboard/myClasses' ? 'bg-green text-white' : ''}`}><GiBlackBook size={25} /> <span>My Classes</span></NavLink>
-                        </li>
-                        <li className='w-full'>
-                            <NavLink to='/dashboard/addClass' className={`flex items-center gap-2 hover:bg-green hover:text-white p-2 rounded-lg duration-300 ease-in-out ${pathname === '/dashboard/addClass' ? 'bg-green text-white' : ''}`}><MdOutlineNoteAdd size={25} /> <span>Add a Class</span></NavLink>
-                        </li>
-                    </ul>
-                }
+                    {/* Instructor */}
+                    {
+                        role === 'instructor' && <ul className='px-6 flex flex-col gap-5 mt-5 items-start'>
+                            <li className='w-full'>
+                                <NavLink to='/dashboard/myClasses' className={`flex items-center gap-2 hover:bg-green hover:text-white p-2 rounded-lg duration-300 ease-in-out ${pathname === '/dashboard/myClasses' ? 'bg-green text-white' : ''}`}><GiBlackBook size={25} /> <span>My Classes</span></NavLink>
+                            </li>
+                            <li className='w-full'>
+                                <NavLink to='/dashboard/addClass' className={`flex items-center gap-2 hover:bg-green hover:text-white p-2 rounded-lg duration-300 ease-in-out ${pathname === '/dashboard/addClass' ? 'bg-green text-white' : ''}`}><MdOutlineNoteAdd size={25} /> <span>Add a Class</span></NavLink>
+                            </li>
+                        </ul>
+                    }
 
-                {/* admin */}
-                {
-                    role === 'admin' && <ul className='px-6 flex flex-col gap-5 mt-5 items-start'>
-                        <li className='w-full'>
-                            <NavLink to='/dashboard/manageClasses' className={`flex items-center gap-2 hover:bg-green hover:text-white p-2 rounded-lg duration-300 ease-in-out ${pathname === '/dashboard/manageClasses' ? 'bg-green text-white' : ''}`}><VscSettings size={25} /> <span>Manage Classes</span></NavLink>
-                        </li>
-                        <li className='w-full'>
-                            <NavLink to='/dashboard/manageUsers' className={`flex items-center gap-2 hover:bg-green hover:text-white p-2 rounded-lg duration-300 ease-in-out ${pathname === '/dashboard/manageUsers' ? 'bg-green text-white' : ''}`}><MdOutlineManageAccounts size={25} /> <span>Manage Users</span></NavLink>
-                        </li>
-                    </ul>
-                }
+                    {/* admin */}
+                    {
+                        role === 'admin' && <ul className='px-6 flex flex-col gap-5 mt-5 items-start'>
+                            <li className='w-full'>
+                                <NavLink to='/dashboard/manageClasses' className={`flex items-center gap-2 hover:bg-green hover:text-white p-2 rounded-lg duration-300 ease-in-out ${pathname === '/dashboard/manageClasses' ? 'bg-green text-white' : ''}`}><VscSettings size={25} /> <span>Manage Classes</span></NavLink>
+                            </li>
+                            <li className='w-full'>
+                                <NavLink to='/dashboard/manageUsers' className={`flex items-center gap-2 hover:bg-green hover:text-white p-2 rounded-lg duration-300 ease-in-out ${pathname === '/dashboard/manageUsers' ? 'bg-green text-white' : ''}`}><MdOutlineManageAccounts size={25} /> <span>Manage Users</span></NavLink>
+                            </li>
+                        </ul>
+                    }
 
-                <div className='border-t border-orange mx-4 mt-5'></div>
-                <div className='flex items-center justify-center mt-5'>
-                    <NavLink to='/' className='flex items-center gap-2 bg-green text-white px-6 py-2 rounded-lg duration-300 ease-in-out text-center'><AiOutlineHome size={25} /> <span>Back to Home</span></NavLink>
-                </div>
+                    <div className='border-t border-orange mx-4 mt-5'></div>
+                    <div className='flex items-center justify-center mt-5'>
+                        <NavLink to='/' className='flex items-center gap-2 bg-green text-white px-6 py-2 rounded-lg duration-300 ease-in-out text-center'><AiOutlineHome size={25} /> <span>Back to Home</span></NavLink>
+                    </div>
+                </Slide>
             </nav>
 
             <MobileDrawerNav role={role} pathname={pathname} />

@@ -14,7 +14,7 @@ const Dashboard = () => {
                 <div className='flex'>
                     <DashboardDrawer />
 
-                    <main className='w-full bg-grange mx-6'>
+                    <main className='w-full bg-[#f1f6fa] mx-2 md:mx-6'>
                         <DashboardNav />
                         <Outlet />
                     </main>

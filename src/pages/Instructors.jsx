@@ -5,6 +5,7 @@ import useClasses from '../hooks/useClasses';
 import Breadcrumbs from '../components/Shared/Breadcrumbs';
 import Loading from '../components/Loading';
 import { Helmet } from 'react-helmet';
+import { Zoom } from 'react-awesome-reveal';
 
 const Instructors = () => {
     const [classes] = useClasses();
@@ -22,7 +23,7 @@ const Instructors = () => {
     });
 
     return (
-        <section>
+        <section className='overflow-hidden'>
             <Helmet>
                 <title>Eco Learner | Instructors</title>
             </Helmet>
@@ -32,9 +33,11 @@ const Instructors = () => {
                 {/* classes card */}
                 {
                     uniqueInstructors.length === 0 ? <div className='-mt-20'><Loading /></div> : <div className='grid grid-cols-1 md:grid-cols-3 gap-10 mt-16'>
-                        {
-                            uniqueInstructors.map((item, index) => <InstructorCard key={item._id} item={item} instructorClasses={instructorClasses} index={index} />)
-                        }
+                        <Zoom cascade damping={0.1} triggerOnce={true}>
+                            {
+                                uniqueInstructors.map((item, index) => <InstructorCard key={item._id} item={item} instructorClasses={instructorClasses} index={index} />)
+                            }
+                        </Zoom>
                     </div>
                 }
             </div>

@@ -5,12 +5,14 @@ import SectionTitle from '../components/Shared/SectionTitle';
 import Breadcrumbs from '../components/Shared/Breadcrumbs';
 import Loading from '../components/Loading';
 import { Helmet } from 'react-helmet';
+import { Slide } from 'react-awesome-reveal';
 
 const Classes = () => {
     const [classes] = useClasses();
+    const approveClasses = classes.filter(item => item.status === 'approved');
 
     return (
-        <section>
+        <section className='overflow-hidden'>
             <Helmet>
                 <title>Eco Learner | Classes</title>
             </Helmet>
@@ -21,10 +23,12 @@ const Classes = () => {
 
                     {/* classes card */}
                     {
-                        classes.length === 0 ? <div className='-mt-20'><Loading /></div> : <div className='grid grid-cols-1 md:grid-cols-3 gap-10 mt-16'>
-                            {
-                                classes.map((item) => <ClassesCard key={item._id} item={item} />)
-                            }
+                        approveClasses.length === 0 ? <div className='-mt-20'><Loading /></div> : <div className='grid grid-cols-1 md:grid-cols-3 gap-10 mt-16'>
+                            <Slide cascade damping={0.1} direction="up" triggerOnce={true}>
+                                {
+                                    approveClasses.map((item) => <ClassesCard key={item._id} item={item} />)
+                                }
+                            </Slide>
                         </div>
                     }
                 </div>

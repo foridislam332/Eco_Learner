@@ -2,7 +2,6 @@ import { Link, useLocation } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import useSelectedClasses from '../hooks/useSelectedClasses';
 import useAuth from '../hooks/useAuth';
-import { motion } from 'framer-motion';
 
 // react icons
 import { HiOutlineUsers } from 'react-icons/hi'
@@ -10,7 +9,7 @@ import { BiBook } from 'react-icons/bi'
 import useCurrentUser from '../hooks/useCurrentUser';
 import useAxiosSecure from '../hooks/useAxiosSecure';
 
-const ClassesCard = ({ item, variants }) => {
+const ClassesCard = ({ item }) => {
     const { name, instructor, image, des, price, seats, students } = item;
     const { user } = useAuth();
     const [axiosSecure] = useAxiosSecure();
@@ -45,9 +44,8 @@ const ClassesCard = ({ item, variants }) => {
             })
     }
     return (
-        <motion.div
-            variants={variants}
-            className={`${seats === 0 ? 'bg-red dark:bg-gray' : 'bg-white dark:bg-dark'} hover:shadow-xl rounded-md flex flex-col justify-between hover:-translate-y-4 duration-300 ease-in-out`}>
+        <div
+            className={`${seats === 0 ? 'bg-red dark:bg-gray' : 'bg-white dark:bg-dark'} hover:shadow-xl rounded-md flex flex-col justify-between hover:-translate-y-4 duration-300 ease-in-out h-full`}>
             <img className='rounded-md' src={image} alt={name} />
 
             <div className={`flex-1 px-5 pt-5`}>
@@ -83,7 +81,7 @@ const ClassesCard = ({ item, variants }) => {
                     </div>
                 }
             </div>
-        </motion.div>
+        </div>
     );
 };
 
