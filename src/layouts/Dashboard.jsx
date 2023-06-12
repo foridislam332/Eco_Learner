@@ -3,10 +3,12 @@ import { Outlet } from 'react-router-dom';
 import DashboardNav from '../pages/Dashboard/DashboardNav';
 import DashboardDrawer from '../pages/Dashboard/DashboardDrawer';
 import { Helmet } from 'react-helmet';
+import ScrollToTop from '../components/ScrollToTop';
 
 const Dashboard = () => {
     return (
         <>
+            <ScrollToTop />
             <Helmet>
                 <title>Eco Learner | Dashboard</title>
             </Helmet>
