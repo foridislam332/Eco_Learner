@@ -35,7 +35,7 @@ const FeedbackModal = ({ id }) => {
                 Send Feedback
             </button>
 
-            <div className={`fixed top-0 left-0 z-[9999] w-full h-screen ${show ? 'scale-100 rounded-none' : 'scale-0 rounded-full'} duration-300`}>
+            <div className={`absolute top-0 left-0 z-[9999] w-full h-screen ${show ? 'scale-100 rounded-none' : 'scale-0 rounded-full'} duration-300`}>
                 <div className='relative w-full h-screen flex items-center justify-center'>
                     <div onClick={() => setShow(!show)} className={`absolute top-0 left-0 h-full w-full bg-black bg-opacity-40  ${show ? 'opacity-100' : 'opacity-0'} delay-300 duration-300`}></div>
                     <div className='relative bg-white w-[450px] h-56 border border-green shadow-lg rounded-lg p-4'>

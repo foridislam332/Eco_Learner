@@ -33,7 +33,7 @@ const ManageClasses = () => {
     }
 
     return (
-        <section className='shadow-xl shadow-indigo-500/20 my-2 md:my-5 p-5 rounded-lg bg-white overflow-hidden'>
+        <section className='shadow-xl shadow-indigo-500/20 my-5 p-5 rounded-lg bg-white overflow-hidden'>
             <Slide cascade damping={0.1} direction="right" triggerOnce={true}>
                 <Helmet>
                     <title>Eco Learner | Dashboard | Manage Classes</title>
@@ -47,15 +47,13 @@ const ManageClasses = () => {
             {/* manage classes card */}
             {
                 sortedClasses.length === 0 ? <div className='-mt-20'><Loading /></div> : <div className='grid grid-cols-1 gap-6'>
-                    <Slide cascade damping={0.1} direction="right" triggerOnce={true}>
-                        {
-                            sortedClasses.map(item => <ManageClassesCard
-                                key={item._id}
-                                item={item}
-                                handleStatus={handleStatus}
-                            />)
-                        }
-                    </Slide>
+                    {
+                        sortedClasses.map(item => <ManageClassesCard
+                            key={item._id}
+                            item={item}
+                            handleStatus={handleStatus}
+                        />)
+                    }
                 </div>
             }
         </section>
