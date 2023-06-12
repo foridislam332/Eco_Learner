@@ -12,6 +12,9 @@ import { FiLogOut } from 'react-icons/fi';
 import { GiBlackBook } from 'react-icons/gi';
 import { VscSettings } from 'react-icons/vsc';
 
+// logo 
+import Logo from '../../assets/images/logo.png';
+
 const DashboardDrawer = () => {
     const { logOut } = useAuth();
     const { pathname } = useLocation();
@@ -21,8 +24,8 @@ const DashboardDrawer = () => {
     return (
         <div className='w-20 lg:w-80 sticky top-0 h-screen bg-white rounded-lg flex flex-col justify-between shadow-xl shadow-indigo-500/20'>
             <nav className='hidden lg:block'>
-                <div className='text-center py-4'>
-                    <NavLink to='/' className='text-3xl font-semibold text-green'>Eco Learner</NavLink>
+                <div className='text-center py-4 mx-auto flex items-center justify-center'>
+                    <NavLink to='/'><img className="w-44" src={Logo} alt="eco learner logo" /></NavLink>
                 </div>
                 <div className='border-t border-orange mx-4'></div>
 

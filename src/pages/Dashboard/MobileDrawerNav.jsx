@@ -7,11 +7,14 @@ import { AiOutlineHome } from 'react-icons/ai';
 import { GiBlackBook } from 'react-icons/gi';
 import { VscSettings } from 'react-icons/vsc';
 
+// logo 
+import Logo from '../../assets/images/fav.png';
+
 const MobileDrawerNav = ({ role, pathname }) => {
     return (
         <nav className='lg:hidden'>
-            <div className='text-center py-4'>
-                <NavLink to='/' className='text-3xl font-semibold text-green'>EL</NavLink>
+            <div className='text-center py-4 flex items-center justify-center'>
+                <NavLink to='/'><img className="w-12" src={Logo} alt="eco learner logo" /></NavLink>
             </div>
             <div className='border-t border-orange mx-4'></div>
 

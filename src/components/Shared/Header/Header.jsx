@@ -4,6 +4,9 @@ import NavItem from "./NavItem";
 
 import MobileNav from "./MobileNav";
 
+// logo 
+import Logo from '../../../assets/images/logo.png';
+
 // react icons
 import { HiBars3 } from 'react-icons/hi2';
 
@@ -23,16 +26,18 @@ const Header = () => {
     }, []);
 
     return (
-        <header className={`fixed top-0 w-full py-1 z-[999] duration-300 ease-in-out ${scrollNav ? 'backdrop-blur-md bg-white/50' : 'bg-black bg-opacity-50'}`}>
+        <header className={`fixed top-0 w-full py-1 z-[999] duration-300 ease-in-out ${scrollNav ? 'backdrop-blur-lg bg-white/60' : 'bg-black bg-opacity-50'}`}>
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <nav className="flex items-center justify-between h-16">
                     <div className="flex-shrink-0">
-                        <Link to="/" className="text-green font-medium text-xl">Eco Learner</Link>
+                        <Link to="/">
+                            <img className="w-44" src={Logo} alt="eco learner logo" />
+                        </Link>
                     </div>
 
                     {/* bars icons */}
                     <button className="inline-block lg:hidden" onClick={() => setOpen(!open)}>
-                        <HiBars3 className="text-navy hover:text-pink duration-300" size={28} />
+                        <HiBars3 className="text-white hover:text-green duration-300" size={28} />
                     </button>
 
                     <ul className={`hidden lg:flex items-center gap-6 ${scrollNav ? 'text-dark' : 'text-white'}`}>

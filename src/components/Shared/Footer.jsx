@@ -1,5 +1,7 @@
 import { Link } from "react-router-dom";
 
+// logo 
+import Logo from '../../assets/images/eco-learner-logo-b.png';
 
 // react icons
 import { FaFacebookF, FaTwitter, FaGoogle, FaYoutube, FaGithub, FaRegPaperPlane } from 'react-icons/fa';
@@ -14,9 +16,11 @@ const Footer = () => {
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-10 lg:gap-20">
 
                     <div className="flex flex-col gap-5 items-center">
-                        <Link to="/" className="text-green font-medium text-4xl">Eco Learner</Link>
+                        <Link to="/" className="text-green font-medium text-4xl">
+                            <img className="w-40" src={Logo} alt="" />
+                        </Link>
 
-                        <p className="text-gray text-sm text-center mb-4">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Fugit quia hic deserunt. Ipsum, ut praesentium. Velit numquam impedit quod sit fugiat aliquam suscipit incidunt.</p>
+                        <p className="text-gray text-sm text-center mb-2">A Summer Camp Nature Exploration Learning School combines the elements of a traditional summer camp with a focus on nature exploration and experiential learning.</p>
 
                         {/* social icons */}
                         <div className="flex items-center gap-3">
@@ -30,10 +34,6 @@ const Footer = () => {
 
                             <div className="w-10 h-10 flex items-center justify-center rounded-full border border-[#dc4a38] group cursor-pointer">
                                 <FaGoogle color="#dc4a38" className="relative group-hover:scale-150 duration-300" />
-                            </div>
-
-                            <div className="w-10 h-10 flex items-center justify-center rounded-full border border-[#171515] group cursor-pointer">
-                                <FaGithub color="#171515" className="relative group-hover:scale-150 duration-300" />
                             </div>
 
                             <div className="w-10 h-10 flex items-center justify-center rounded-full border border-[#FF0000] group cursor-pointer">
