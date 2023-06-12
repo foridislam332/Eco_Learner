@@ -4,6 +4,7 @@ import Loading from '../../components/Loading';
 import Swal from 'sweetalert2';
 import useAxiosSecure from '../../hooks/useAxiosSecure';
 import { useQuery } from '@tanstack/react-query';
+import { Helmet } from 'react-helmet';
 
 const SelectedClasses = () => {
     const { user } = useAuth();
@@ -44,7 +45,10 @@ const SelectedClasses = () => {
     }
 
     return (
-        <div className='shadow-xl shadow-indigo-500/20 my-5 p-5 rounded-lg bg-white'>
+        <section className='shadow-xl shadow-indigo-500/20 my-5 p-5 rounded-lg bg-white'>
+            <Helmet>
+                <title>Eco Learner | Dashboard | My Selected Classes</title>
+            </Helmet>
             <div className='mb-8'>
                 <h1 className='text-3xl text-dark font-medium drop-shadow-xl'>My Selected Classes</h1>
                 <p className='text-sm text-gray italic drop-shadow-xl font-light'>Dashboard / <span className='text-green'>Selected Classes</span></p>
@@ -77,7 +81,7 @@ const SelectedClasses = () => {
                     </table>
                 </div>
             }
-        </div>
+        </section>
     );
 };
 

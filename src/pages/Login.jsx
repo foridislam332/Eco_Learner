@@ -12,6 +12,7 @@ import { AiOutlineEyeInvisible, AiOutlineEye } from 'react-icons/ai';
 
 // image
 import SocialLogin from '../components/SocialLogin';
+import { Helmet } from 'react-helmet';
 
 const Login = () => {
     const { signIn } = useAuth();
@@ -39,6 +40,9 @@ const Login = () => {
 
     return (
         <section>
+            <Helmet>
+                <title>Eco Learner | Login</title>
+            </Helmet>
             <Breadcrumbs title="Login" />
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20">
                 <div className='grid md:grid-cols-2 gap-10 place-items-center'>
@@ -69,7 +73,7 @@ const Login = () => {
                                 <input type={type} className='w-full border-none outline-none' id='password' placeholder="password" {...register("password", { required: true })} />
                                 <button onClick={() => setType(type === 'password' ? 'text' : 'password')}>
                                     {
-                                        type === 'password' ? <AiOutlineEyeInvisible /> : <AiOutlineEye />
+                                        type === 'password' ? <AiOutlineEye /> : <AiOutlineEyeInvisible />
                                     }
                                 </button>
                             </div>

@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet";
 import Features from "../sections/HomeSections/Features";
 import HeroBanner from "../sections/HomeSections/HeroBanner";
 import LetsStarted from "../sections/HomeSections/LetsStarted";
@@ -8,6 +9,9 @@ import WhyChoose from "../sections/HomeSections/WhyChoose";
 const Home = () => {
     return (
         <>
+            <Helmet>
+                <title>Eco Learner | e-Learning School React Template</title>
+            </Helmet>
             <HeroBanner />
             <Features />
             <PopularClasses />

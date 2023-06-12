@@ -4,6 +4,7 @@ import useAuth from '../../hooks/useAuth';
 import useAxiosSecure from '../../hooks/useAxiosSecure';
 import { useQuery } from '@tanstack/react-query';
 import EnrolledClassesCard from '../../components/EnrolledClassesCard';
+import { Helmet } from 'react-helmet';
 
 const EnrolledClasses = () => {
     const { user } = useAuth();
@@ -17,7 +18,10 @@ const EnrolledClasses = () => {
     })
 
     return (
-        <div className='shadow-xl shadow-indigo-500/20 my-5 p-5 rounded-lg bg-white'>
+        <section className='shadow-xl shadow-indigo-500/20 my-5 p-5 rounded-lg bg-white'>
+            <Helmet>
+                <title>Eco Learner | Dashboard | Enrolled Classes</title>
+            </Helmet>
             <div className='mb-8'>
                 <h1 className='text-3xl text-dark font-medium drop-shadow-xl'>My Enrolled Classes</h1>
                 <p className='text-sm text-gray italic drop-shadow-xl font-light'>Dashboard / <span className='text-green'>Enrolled Classes</span></p>
@@ -31,7 +35,7 @@ const EnrolledClasses = () => {
                     }
                 </div>
             }
-        </div>
+        </section>
     );
 };
 

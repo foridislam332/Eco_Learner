@@ -16,6 +16,7 @@ import { BsShieldCheck } from 'react-icons/bs';
 import Swal from 'sweetalert2';
 import SocialLogin from '../components/SocialLogin';
 import useAxiosSecure from '../hooks/useAxiosSecure';
+import { Helmet } from 'react-helmet';
 
 const SignUp = () => {
     const { signUpUser, profileUpdate } = useAuth();
@@ -98,6 +99,9 @@ const SignUp = () => {
 
     return (
         <section>
+            <Helmet>
+                <title>Eco Learner | Sign Up</title>
+            </Helmet>
             <Breadcrumbs title="Sign Up" />
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20">
                 <div className='grid lg:grid-cols-2 gap-10 place-items-center'>

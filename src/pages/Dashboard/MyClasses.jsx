@@ -2,11 +2,15 @@ import React from 'react';
 import MyClassesTableRow from '../../components/MyClassesTableRow';
 import useMyClasses from '../../hooks/useMyClasses';
 import Loading from '../../components/Loading';
+import { Helmet } from 'react-helmet';
 
 const MyClasses = () => {
     const [myClasses] = useMyClasses();
     return (
-        <div className='shadow-xl shadow-indigo-500/20 my-5 p-5 rounded-lg bg-white'>
+        <section className='shadow-xl shadow-indigo-500/20 my-5 p-5 rounded-lg bg-white'>
+            <Helmet>
+                <title>Eco Learner | Dashboard | My Classes</title>
+            </Helmet>
             <div className='mb-8'>
                 <h1 className='text-3xl text-dark font-medium drop-shadow-xl'>My Classes</h1>
                 <p className='text-sm text-gray italic drop-shadow-xl font-light'>Dashboard / <span className='text-green'>My Classes</span></p>
@@ -39,7 +43,7 @@ const MyClasses = () => {
                     </table>
                 </div>
             }
-        </div>
+        </section>
     );
 };
 

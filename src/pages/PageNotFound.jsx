@@ -1,9 +1,13 @@
 import { Player } from '@lottiefiles/react-lottie-player';
+import { Helmet } from 'react-helmet';
 import { Link } from 'react-router-dom';
 
 const PageNotFound = () => {
     return (
         <section className='h-screen w-full flex flex-col items-center justify-center'>
+            <Helmet>
+                <title>Eco Learner | 404 Page Not Found</title>
+            </Helmet>
             <div>
                 <Player
                     autoplay

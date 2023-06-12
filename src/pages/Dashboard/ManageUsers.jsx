@@ -4,6 +4,7 @@ import UserTableRow from '../../components/UserTableRow';
 import Swal from 'sweetalert2';
 import useAxiosSecure from '../../hooks/useAxiosSecure';
 import { useQuery } from '@tanstack/react-query';
+import { Helmet } from 'react-helmet';
 
 const ManageUsers = () => {
     const [axiosSecure] = useAxiosSecure();
@@ -30,7 +31,10 @@ const ManageUsers = () => {
         }
     }
     return (
-        <div className='shadow-xl shadow-indigo-500/20 my-5 p-5 rounded-lg bg-white'>
+        <section className='shadow-xl shadow-indigo-500/20 my-5 p-5 rounded-lg bg-white'>
+            <Helmet>
+                <title>Eco Learner | Dashboard | Manage Users</title>
+            </Helmet>
             <div className='mb-8'>
                 <h1 className='text-3xl text-dark font-medium drop-shadow-xl'>Manage Users</h1>
                 <p className='text-sm text-gray italic drop-shadow-xl font-light'>Dashboard / <span className='text-green'>Manage Users</span></p>
@@ -62,7 +66,7 @@ const ManageUsers = () => {
                     </table>
                 </div>
             }
-        </div>
+        </section>
     );
 };
 

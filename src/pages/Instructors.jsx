@@ -4,6 +4,7 @@ import InstructorCard from '../components/InstructorCard';
 import useClasses from '../hooks/useClasses';
 import Breadcrumbs from '../components/Shared/Breadcrumbs';
 import Loading from '../components/Loading';
+import { Helmet } from 'react-helmet';
 
 const Instructors = () => {
     const [classes] = useClasses();
@@ -22,6 +23,9 @@ const Instructors = () => {
 
     return (
         <section>
+            <Helmet>
+                <title>Eco Learner | Instructors</title>
+            </Helmet>
             <Breadcrumbs title='Instructors' />
             <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 md:pt-20">
                 <SectionTitle>Our Instructors</SectionTitle>
