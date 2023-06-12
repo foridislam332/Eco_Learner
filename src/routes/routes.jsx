@@ -19,6 +19,7 @@ import AdminRoute from "./AdminRoute";
 import InstructorRoute from "./InstructorRoute";
 import Payment from "../pages/Dashboard/Payment/Payment";
 import PaymentHistory from "../pages/Dashboard/Payment/PaymentHistory";
+import PageNotFound from "../pages/PageNotFound";
 
 const routes = createBrowserRouter([
     {
@@ -95,6 +96,10 @@ const routes = createBrowserRouter([
                 element: <AdminRoute><ManageUsers></ManageUsers></AdminRoute>
             }
         ]
+    },
+    {
+        path: '*',
+        element: <PageNotFound />
     }
 ]);
 
